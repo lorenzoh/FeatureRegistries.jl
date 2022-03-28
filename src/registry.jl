@@ -9,6 +9,8 @@ struct Field
     formatfn
 end
 
+Base.show(io::IO, field::Field) = print(io, "Field(", field.T, ", \"", field.name, "\")")
+
 
 function Field(
         T,
