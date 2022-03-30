@@ -7,11 +7,25 @@ struct Field
     transformfn
     createfn
     formatfn
+    getfilterfn
 end
 
 Base.show(io::IO, field::Field) = print(io, "Field(", field.T, ", \"", field.name, "\")")
 
 
+"""
+    struct Field(T, name; kwargs...)
+
+A field defines what data will be stored in one column of a `Registry`.
+
+## Keyword arguments
+
+- `description::String`: More information on the field contents and how they
+    can be used. May contain Markdown formatting.
+- `optional = false`: Whether a registry entry can be entered without a value
+    in this field.
+- `default = missing`: The default value used if `optional === true`.
+"""
 function Field(
         T,
         name;
@@ -25,9 +39,10 @@ function Field(
         containerfn = () -> U[],
         # validatefn = Returns(true),
         formatfn = identity,
+        getfilterfn = nothing,
     )
     # make it possible to require fields
-    Field(T, name, description, computefn, transformfn, containerfn, formatfn)
+    Field(T, name, description, computefn, transformfn, containerfn, formatfn, getfilterfn)
 end
 
 
@@ -75,18 +90,53 @@ struct Registry{F<:NamedTuple, N, S<:StructArray, D<:Dict}
     index::D
     name
     description
+    loadfn
     # hidecols: columns to be hidden from printing
 end
+
+"""
+    struct RegistryEntry(row, registry)
+
+An entry in a feature registry `registry` with values `row`.
+Returned when indexing into a `FeatureRegistry`, i.e.
+`registry[id]`.
+"""
+struct RegistryEntry
+    row
+    registry::Registry
+end
+
+
+Base.getproperty(entry::RegistryEntry, sym::Symbol) =
+    getproperty(getfield(entry, :row), sym)
+
+Base.propertynames(entry::RegistryEntry) =
+    propertynames(getfield(entry, :row))
+
+
+"""
+    load(entry)
+    load(registry[id])
+
+Load a feature represented by a registry entry. The behavior depends on
+the `Registry`.
+"""
+load(entry::RegistryEntry; kwargs...) = getfield(entry, :registry).loadfn(getfield(entry, :row); kwargs...)
+
 
 getdata(registry::Registry) = getfield(registry, :data)
 getfields(registry::Registry) = getfield(registry, :fields)
 
-function Registry(name, fields; description = "", id = (:id,))
+function Registry(name, fields; loadfn = identity, description = "", id = (:id,))
     id = id isa Symbol ? (id,) : id
     data = StructArray(NamedTuple(key => field.createfn() for (key, field) in pairs(fields)))
     index = Dict{Any, Int}()
 
-    return Registry(fields, id, data, index, name, description)
+    for id_ in id
+        hasproperty(fields, id_) || throw(ArgumentError("ID field $id_ does not exist!"))
+    end
+
+    return Registry(fields, id, data, index, name, description, loadfn)
 end
 
 function makerow(fields, row::NamedTuple)
@@ -101,9 +151,9 @@ struct DuplicateIDError <: Exception
     key
 end
 
+
 Base.showerror(io::IO, e::DuplicateIDError) = print(
     io, "DuplicateIDError: ID `", e.key, "` already registered!")
-
 
 
 function Base.push!(registry::Registry, entry::NamedTuple)
@@ -121,9 +171,12 @@ function Base.push!(registry::Registry, entry::NamedTuple)
     return row
 end
 
+# ### `Base` interface for `Registry`
 
 function Base.getindex(registry::Registry, idx)
-    return getfield(registry, :data)[getfield(registry, :index)[_index_key(registry, idx)]]
+    return RegistryEntry(
+        getfield(registry, :data)[getfield(registry, :index)[_index_key(registry, idx)]],
+        registry)
 end
 
 function Base.getindex(registry::Registry, ::Colon, sym::Symbol)
@@ -132,24 +185,30 @@ end
 
 Base.length(registry::Registry) = length(registry.data)
 
-Base.haskey(registry::Registry, idx) = haskey(getfield(registry, :index), _index_key(registry, idx))
+Base.haskey(registry::Registry, idx) =
+    haskey(getfield(registry, :index), _index_key(registry, idx))
 
 Base.sort(registry::Registry, col::Symbol; rev = false) =
-    withdata(registry, view(getdata(registry), sortperm(getproperty(getdata(registry), col); rev)))
+    withdata(
+        registry,
+        view(getdata(registry), sortperm(getproperty(getdata(registry), col); rev)))
 
-_index_key(registry::Registry, nt::NamedTuple) = Tuple(nt[i] for i in getfield(registry, :id))
+_index_key(registry::Registry, nt::NamedTuple) =
+    Tuple(nt[i] for i in getfield(registry, :id))
 
 function _index_key(registry::Registry, id)
     length(getfield(registry, :id)) == 1 || throw(KeyError("Registry has a multi-column ID `$(getfield(registry, :id))`, please pass in a named tuple."))
     return (id,)
 end
 
-_index_key(registry::Registry, t::Tuple) = t
+_index_key(::Registry, t::Tuple) = t
 
 function withdata(registry::Registry, data)
     return Setfield.@set registry.data = data
 end
 
+
+# ### Tests for `Registry`
 
 @testset "Registry" begin
     testregistry() = Registry("Test registry", (

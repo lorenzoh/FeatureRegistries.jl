@@ -24,11 +24,11 @@ _fmap(f) = x -> _fmap(f, x)
 
 export find
 
-getfilterfn(field::Field, query) = getfilterfn(field.T, query)
+getfilterfn(field::Field, query) = isnothing(field.getfilterfn) ? getfilterfn(field.T, query) : field.getfilterfn(query)
 getfilterfn(::Type{String}, query::String) = s -> occursin(query, s)
 getfilterfn(::Type{String}, query::Regex) = s -> match(query, s) !== nothing
-getfilterfn(type::Type{T}, query::T) where T = (==)(query)
-getfilterfn(type::Type{T}, f) where T = f
+getfilterfn(::Type{T}, query::T) where T = (==)(query)
+getfilterfn(::Type{T}, f) where T = f
 
 
 

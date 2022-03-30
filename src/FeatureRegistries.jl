@@ -10,16 +10,18 @@ import Setfield
 
 
 include("registry.jl")
-export Field, Registry, DuplicateIDError
+export Field, Registry,
+    DuplicateIDError, RequiredKeyMissingError,
+    load
 
 
 include("find.jl")
 export find
 
+include("info.jl")
+export info
 
 include("printing.jl")
 
-include("info.jl")
-export info
 
 end  # module
