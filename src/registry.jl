@@ -114,6 +114,8 @@ Base.propertynames(entry::RegistryEntry) =
     propertynames(getfield(entry, :row))
 
 
+Base.NamedTuple(entry::RegistryEntry) = NamedTuple(getfield(entry, :row))
+
 """
     load(entry)
     load(registry[id])
@@ -242,7 +244,7 @@ end
             registry = testregistry()
             push!(registry, (; id = "myid"))
             @test_nowarn registry["myid"]
-            @test registry["myid"] == (; id = "myid")
+            @test NamedTuple(registry["myid"]) == (; id = "myid")
             @test_nowarn registry[("myid",)]
             @test_nowarn registry[(id = "myid",)]
         end

@@ -25,9 +25,9 @@ tablecell(b::Bool) = AnsiTextCell(b ? "$(crayon"green")✔" : "$(crayon"red")⨯
 
 # ## `show` methods
 
-function _showregistry(io, registry::Registry)
-    data, fields = getdata(registry), getfields(registry)
 
+function registrytable(registry::Registry)
+    data, fields = getdata(registry), getfields(registry)
     names = [f.name for f in fields]
     cols = [":$k" for k in keys(fields)]
 
@@ -41,24 +41,42 @@ function _showregistry(io, registry::Registry)
 
     title = "Registry($(getfield(registry, :name)), $(length(data)) entries)"
 
-    pretty_table(
-        io,
-        tabledata,
+    tabledata, (;
         header=(names, cols),
-        maximum_columns_width=40,
         alignment=:l,
-        hlines=:all,
-        vlines=[:begin, :end],
         title=title,
         title_alignment=:l,
-        vcrop_mode=:middle,
-        title_same_width_as_table=true,
-        tf=PrettyTables.tf_borderless
     )
+
 end
 
-Base.show(io::IO, registry::Registry) = _showregistry(io, registry)
+function Base.show(io::IO, registry::Registry)
+    tabledata, kwargs = registrytable(registry)
+    pretty_table(
+        io,
+        tabledata;
+        backend = Val(:text),
+        tf=PrettyTables.tf_borderless,
+        hlines=:all,
+        vlines=[:begin, :end],
+        maximum_columns_width=40,
+        vcrop_mode=:middle,
+        title_same_width_as_table=true,
+        kwargs...)
+end
 
+
+
+function Base.show(io::IO, mime::MIME"text/html", registry::Registry)
+    tabledata, kwargs = registrytable(registry)
+    PrettyTables.pretty_table(
+        io,
+        tabledata;
+        backend = Val(:html),
+        standalone=false,
+        tf=tf_html_minimalist,
+        kwargs...)
+end
 
 
 
