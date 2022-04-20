@@ -175,7 +175,7 @@ end
 
 function Base.getindex(registry::Registry, idx)
     return RegistryEntry(
-        getfield(registry, :data)[getfield(registry, :index)[_index_key(registry, idx)]],
+        parent(getfield(registry, :data))[getfield(registry, :index)[_index_key(registry, idx)]],
         registry)
 end
 
@@ -204,7 +204,17 @@ end
 _index_key(::Registry, t::Tuple) = t
 
 function withdata(registry::Registry, data)
-    return Setfield.@set registry.data = data
+    reg = Setfield.@set registry.data = data
+
+    # recreate index
+    index = Dict{Any, Int}()
+    for (i, row) in enumerate(data)
+        id = Tuple(row[id] for id in getfield(registry, :id))
+        index[id] = i
+    end
+    reg = Setfield.@set reg.index = index
+
+    return reg
 end
 
 
