@@ -16,7 +16,7 @@ Base.show(io::IO, field::Field) = print(io, "Field(", field.T, ", \"", field.nam
 """
     struct Field(T, name; kwargs...)
 
-A field defines what data will be stored in one column of a `Registry`.
+A field defines what data will be stored in one column of a [`Registry`](#).
 
 ## Keyword arguments
 

@@ -10,9 +10,7 @@ import Setfield
 
 
 include("registry.jl")
-export Field, Registry,
-    DuplicateIDError, RequiredKeyMissingError,
-    load
+export Field, Registry, load
 
 
 include("find.jl")
