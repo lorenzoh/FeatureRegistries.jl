@@ -125,7 +125,6 @@ function Base.show(io::IO, mime::MIME"text/html", registry::Registry)
         map(_stringhtml, tabledata);
         backend = Val(:html),
         standalone=false,
-        hlines=[],
         tf=tf_html_minimalist,
         allow_html_in_cells=true,
         kwargs...)
