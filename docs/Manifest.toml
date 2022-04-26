@@ -2,7 +2,7 @@
 
 julia_version = "1.8.0-beta3"
 manifest_format = "2.0"
-project_hash = "6e31f9ffe3e14bce49c3626ede4c6d5cfa50e98d"
+project_hash = "e9cfae0ebe8576199d428208362dae7650e25018"
 
 [[deps.ANSIColoredPrinters]]
 git-tree-sha1 = "574baf8110975760d391c710b6341da1afa48d8c"
@@ -187,7 +187,7 @@ uuid = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
 version = "1.1.0"
 
 [[deps.FeatureRegistries]]
-deps = ["InlineTest", "Markdown", "PrettyTables", "Setfield", "StructArrays"]
+deps = ["Base64", "InlineTest", "Markdown", "PrettyTables", "Setfield", "StructArrays"]
 path = "/Users/lorenz/.julia/dev/FeatureRegistries"
 uuid = "c6aefb4f-3ac3-4095-8805-528476b02c02"
 version = "0.1.0"
@@ -306,6 +306,12 @@ deps = ["AxisArrays", "ImageAxes", "ImageBase", "ImageCore"]
 git-tree-sha1 = "36cbaebed194b292590cba2593da27b34763804a"
 uuid = "bc367c6b-8a6b-528e-b4bd-a4b897500b49"
 version = "0.9.8"
+
+[[deps.ImageShow]]
+deps = ["Base64", "FileIO", "ImageBase", "ImageCore", "OffsetArrays", "StackViews"]
+git-tree-sha1 = "d0ac64c9bee0aed6fdbb2bc0e5dfa9a3a78e3acc"
+uuid = "4e3cecfd-b093-5904-9786-8bbb286a6a31"
+version = "0.3.3"
 
 [[deps.IndirectArrays]]
 git-tree-sha1 = "012e604e1c7458645cb8b436f8fba789a51b257f"

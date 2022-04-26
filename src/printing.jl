@@ -16,6 +16,10 @@ function Base.show(io::IO, cell::RichCell{String})
     print(io, cell.val)
 end
 
+function Base.show(io::IO, ::RichCell{Missing})
+    print(io, "$(crayon"dark_gray")missing")
+end
+
 function Base.show(io::IO, cell::RichCell{Bool})
     if cell.val
         print(io, "$(crayon"green")✔")
@@ -121,6 +125,7 @@ function Base.show(io::IO, mime::MIME"text/html", registry::Registry)
         map(_stringhtml, tabledata);
         backend = Val(:html),
         standalone=false,
+        hlines=[],
         tf=tf_html_minimalist,
         allow_html_in_cells=true,
         kwargs...)
