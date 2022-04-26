@@ -31,6 +31,7 @@ function registrytable(registry::Registry)
     names = [f.name for f in fields]
     cols = [":$k" for k in keys(fields)]
 
+    # TODO: don't do format-specific conversion
     tabledata = if length(data) > 0
         reduce(vcat, map(data) do row
             reshape([tablecell(field.formatfn(row[key])) for (key, field) in pairs(fields)], 1, :)
@@ -64,7 +65,6 @@ function Base.show(io::IO, registry::Registry)
         title_same_width_as_table=true,
         kwargs...)
 end
-
 
 
 function Base.show(io::IO, mime::MIME"text/html", registry::Registry)

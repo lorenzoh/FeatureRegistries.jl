@@ -25,6 +25,14 @@ A field defines what data will be stored in one column of a [`Registry`](#).
 - `optional = false`: Whether a registry entry can be entered without a value
     in this field.
 - `default = missing`: The default value used if `optional === true`.
+
+## Examples
+
+A simple `Field` with entries of type `String`:
+
+```
+Field(String, "My Field")
+```
 """
 function Field(
         T,
@@ -32,7 +40,7 @@ function Field(
         description = "",
         default = missing,
         optional = !ismissing(default),
-        defaultfn = (row, key) -> optional ? default : throw(RequiredKeyMissingError(key)),
+        defaultfn = optional ? Returns(default) : ((row, key) -> throw(RequiredKeyMissingError(key))),
         computefn = (row, key) -> haskey(row, key) ? get(row, key, nothing) : defaultfn(row, key),
         U = optional ? Union{typeof(default), T} : T,
         transformfn = x -> convert(U, x),
@@ -129,6 +137,21 @@ load(entry::RegistryEntry; kwargs...) = getfield(entry, :registry).loadfn(getfie
 getdata(registry::Registry) = getfield(registry, :data)
 getfields(registry::Registry) = getfield(registry, :fields)
 
+
+"""
+    Registry(name, fields; kwargs...)
+
+Create a feature registry with columns of [`Field`](#)s.
+
+## Keyword arguments
+
+- `description::String = ""`: Description text for the registry. Shown when `info(registry)`
+    is called.
+- `loadfn = identity`: Function to apply over a row when [`load`](#) is called. For example,
+    calling `load(registry["id"])` will call `loadfn`.
+
+
+"""
 function Registry(name, fields; loadfn = identity, description = "", id = (:id,))
     id = id isa Symbol ? (id,) : id
     data = StructArray(NamedTuple(key => field.createfn() for (key, field) in pairs(fields)))
