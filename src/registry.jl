@@ -46,7 +46,7 @@ function Field(
         transformfn = x -> convert(U, x),
         containerfn = () -> U[],
         # validatefn = Returns(true),
-        formatfn = identity,
+        formatfn = RichCell,
         getfilterfn = nothing,
     )
     # make it possible to require fields

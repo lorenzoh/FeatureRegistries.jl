@@ -1,6 +1,7 @@
 module FeatureRegistries
 
 
+using Base64
 using InlineTest
 using Markdown
 using PrettyTables

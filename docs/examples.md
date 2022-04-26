@@ -13,7 +13,9 @@ colors = Registry("Colors", (;
 
 for name in sort(collect(keys(Colors.color_names)))
     val = Colors.color_names[name]
-    push!(colors, (name = name, color = RGB{N0f8}((val ./ 255)...)))
+    push!(colors, (
+        name = name,
+        color = RGB{N0f8}((val ./ 255)...)))
 end
 
 show(colors)
@@ -23,7 +25,26 @@ show(colors)
 ```julia
 info(colors)
 ```
+{cell}
+```julia
+colors
+```
 
 ## TestImages.jl
 
-TODO
+{cell}
+```julia
+using FeatureRegistries, ImageShow, TestImages
+
+images = Registry("Test images", (;
+    id = Field(String, "ID", description = "The name of the color"),
+    image = Field(Any, "Image"),
+))
+
+for id in TestImages.remotefiles[1:13]
+    image = TestImages.testimage(id)
+    isnothing(image) || prod(size(image)) > 500000 && continue
+    push!(images, (; id, image))
+end
+images
+```
