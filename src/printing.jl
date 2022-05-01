@@ -13,7 +13,7 @@ function Base.show(io::IO, cell::RichCell)
 end
 
 function Base.show(io::IO, cell::RichCell{String})
-    print(io, cell.val)
+    print(io, "$(crayon"green")\"$(cell.val)\"")
 end
 
 function Base.show(io::IO, ::RichCell{Missing})
@@ -31,47 +31,55 @@ end
 
 # HTML
 
+# fallback
+
+const IMAGE_MIMES = [
+    MIME("image/jpeg"),
+    MIME("image/png"),
+    MIME("image/svg+xml"),
+    MIME("image/webp"),
+    MIME("image/gif"),
+]
+
 function Base.show(io::IO, mime::MIME"text/html", cell::RichCell)
     if showable(mime, cell.val)
         show(io, mime, cell.val)
-    elseif showable(MIME("image/png"), cell.val)
-        buf = IOBuffer()
-        show(buf, MIME("image/png"), cell.val)
-        print(io, """<img src="data:image/png;base64,$(Base64.base64encode(take!(buf)))"/>""")
-    elseif showable(MIME("image/svg+xml"), cell.val)
-        buf = IOBuffer()
-        show(buf, MIME("image/svg+xml"), cell.val)
-        print(io, replace(String(take!(buf)), "\n" => ""))
+    elseif any(showable(m, cell.val) for m in IMAGE_MIMES)
+        _show_image_html(io, IMAGE_MIMES, cell.val)
     else
         print(io, cell)
     end
 end
 
-
-
-# ## Custom cell printing
-
-
-function tablecell(o)
-    return AnsiTextCell(
-        io -> display(TextDisplay(io), o),
-        context = (:color => true, :displaysize => (3, 40)))
+function Base.show(io::IO, ::MIME"text/html", cell::RichCell{String})
+    print(io, """<span style="color:#073;">\"$(cell.val)\"</span>""")
 end
 
-function tablecell(s::String)
-    return AnsiTextCell(s)#"$(crayon"green")\"$s\"")
+# from https://github.com/JuliaImages/ImageShow.jl/pull/49
+function _show_image_html(io, mimes::Vector{<:MIME}, x)
+    for mime in mimes
+        if showable(mime, x)
+            _show_image_html(io, mime, x)
+            break
+        end
+    end
 end
 
-function tablecell(::Missing)
-    return AnsiTextCell("$(crayon"dark_gray")missing")
+function _show_image_html(io, mime::MIME{Name}, x) where Name
+    buf = IOBuffer()
+    show(buf, mime, x)
+    print(io, """<img src="data:""", Name, ";base64,", Base64.base64encode(take!(buf)), "\" />")
 end
 
-function tablecell(xs::Vector{String})
-    return xs
+
+
+function Base.show(io::IO, ::MIME"text/html", cell::RichCell{Bool})
+    if cell.val
+        print(io, """<span style="color:green;">✔</span>""")
+    else
+        print(io, """<span style="color:red;">⨯</span>""")
+    end
 end
-
-tablecell(b::Bool) = AnsiTextCell(b ? "$(crayon"green")✔" : "$(crayon"red")⨯")
-
 
 
 # ## `show` methods
@@ -82,7 +90,6 @@ function registrytable(registry::Registry)
     names = [f.name for f in fields]
     cols = [":$k" for k in keys(fields)]
 
-    # TODO: don't do format-specific conversion
     tabledata = if length(data) > 0
         reduce(vcat, map(data) do row
             reshape([field.formatfn(row[key]) for (key, field) in pairs(fields)], 1, :)
@@ -91,16 +98,18 @@ function registrytable(registry::Registry)
         fill(missing, (1, length(fields)))
     end
 
-    title = "Registry($(getfield(registry, :name)), $(length(data)) entries)"
-
     tabledata, (;
         header=(names, cols),
         alignment=:l,
-        title=title,
+        title=_title(registry),
         title_alignment=:l,
     )
 
 end
+
+
+#_title(registry) = "$(getfield(registry, :name)) (Registry() with $(length(getdata(registry))) entr$(length(getdata(registry)) == 1 ? "y" : "ies"))"
+_title(registry) = getfield(registry, :name)
 
 function Base.show(io::IO, registry::Registry)
     tabledata, kwargs = registrytable(registry)
@@ -118,7 +127,7 @@ function Base.show(io::IO, registry::Registry)
 end
 
 
-function Base.show(io::IO, mime::MIME"text/html", registry::Registry)
+function Base.show(io::IO, ::MIME"text/html", registry::Registry)
     tabledata, kwargs = registrytable(registry)
     PrettyTables.pretty_table(
         io,
@@ -127,6 +136,7 @@ function Base.show(io::IO, mime::MIME"text/html", registry::Registry)
         standalone=false,
         tf=tf_html_minimalist,
         allow_html_in_cells=true,
+        linebreaks=true,
         kwargs...)
 end
 
@@ -145,25 +155,21 @@ end
 function _showentry(io::IO, entry::RegistryEntry)
     row = getfield(entry, :row)
     registry = getfield(entry, :registry)
-    println(io, "(")
+    print(io, "(")
 
-    fs = registry.fields
-
-    data = reduce(vcat, [
-            reshape([k, "=", tablecell(f.formatfn(row[k])), AnsiTextCell("$(crayon"dark_gray")($(f.T))")], 1, :)
-            for (k, f) in pairs(fs)
-        ])
+    rows = [reshape([
+            "   $col",
+            "=",
+            AnsiTextCell(string(field.formatfn(row[col]))),
+            AnsiTextCell("$(crayon"dark_gray")($(_fieldtype(field)))")
+            ], 1, :)
+        for (col, field) in pairs(registry.fields)]
     pretty_table(
-        io,
-        data,
-        alignment=[:r, :c, :l, :l],
-        vlines=:none,
-        hlines=:none,
-        vcrop_mode=:middle,
-        tf=PrettyTables.tf_compact,
-        header = ["", "", "", ""]
+        io, reduce(vcat, rows);
+        alignment=[:r, :c, :l, :l], vlines=:none, hlines=:none,
+        vcrop_mode=:middle, tf=PrettyTables.tf_compact,
+        header = ["", "", "", ""],
     )
-    println()
     print(io, ")")
 end
 

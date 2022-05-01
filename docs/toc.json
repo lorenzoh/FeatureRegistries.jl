@@ -1,5 +1,6 @@
 {
     "README": "documents/README.md",
-    "Reference": "references/FeatureRegistries",
-    "Examples": "documents/docs/examples.md"
+    "Using registries": "documents/docs/using.md",
+    "Examples": "documents/docs/examples.md",
+    "Reference": "references/FeatureRegistries"
 }

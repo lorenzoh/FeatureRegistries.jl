@@ -1,16 +1,14 @@
 
-struct Field
-    T
+struct Field{T}
     name
     description
     computefn
     transformfn
     createfn
     formatfn
-    getfilterfn
 end
 
-Base.show(io::IO, field::Field) = print(io, "Field(", field.T, ", \"", field.name, "\")")
+Base.show(io::IO, field::Field{T}) where T = print(io, "Field{", T, "}(name = \"", field.name, "\")")
 
 
 """
@@ -20,11 +18,15 @@ A field defines what data will be stored in one column of a [`Registry`](#).
 
 ## Keyword arguments
 
-- `description::String`: More information on the field contents and how they
+- `description::String = ""`: More information on the field contents and how they
     can be used. May contain Markdown formatting.
-- `optional = false`: Whether a registry entry can be entered without a value
+- `optional = false`: Whether a registry entry can be entered without alue
     in this field.
-- `default = missing`: The default value used if `optional === true`.
+- `default = missing`: The default value used if `optional === true`. If a
+    non-`missing` value is passed, the value of `optional` is ignored and
+    the field is treated as optional.
+- `defaultfn = (row, key) -> default`: Function to compute dynamically compute
+    a default value from an entry. If passed, the value of `default` is ignored.
 
 ## Examples
 
@@ -35,8 +37,8 @@ Field(String, "My Field")
 ```
 """
 function Field(
-        T,
-        name;
+        T;
+        name = "",
         description = "",
         default = missing,
         optional = !ismissing(default),
@@ -45,12 +47,9 @@ function Field(
         U = optional ? Union{typeof(default), T} : T,
         transformfn = x -> convert(U, x),
         containerfn = () -> U[],
-        # validatefn = Returns(true),
         formatfn = RichCell,
-        getfilterfn = nothing,
     )
-    # make it possible to require fields
-    Field(T, name, description, computefn, transformfn, containerfn, formatfn, getfilterfn)
+    Field{T}(name, description, computefn, transformfn, containerfn, formatfn)
 end
 
 
@@ -65,28 +64,28 @@ Base.showerror(e::RequiredKeyMissingError) = print(io,
 
 @testset "Field" begin
     @testset "default" begin
-        field = Field(String, "Field")
+        field = Field(String, name = "Field")
         @test field.computefn((; field = 1,), :field) == 1
         @test_throws RequiredKeyMissingError field.computefn((;), :field)
     end
 
     @testset "optional" begin
-        field = Field(String, "Field", optional = true)
+        field = Field(String, name = "Field", optional = true)
         @test field.computefn((; field = 1,), :field) == 1
         @test field.computefn((;), :field) === missing
 
-        field2 = Field(String, "Field", optional = true, default = nothing)
+        field2 = Field(String, name = "Field", optional = true, default = nothing)
         @test field2.computefn((; field = 1,), :field) == 1
         @test field2.computefn((;), :field) === nothing
 
-        field2 = Field(String, "Field", optional = true, defaultfn = (row, key) -> key)
+        field2 = Field(String, name = "Field", optional = true, defaultfn = (row, key) -> key)
         @test field2.computefn((; field = 1,), :field) == 1
         @test field2.computefn((;), :field) === :field
     end
 
     @testset "container" begin
-        @test Field(String, "Field").createfn() isa Vector{String}
-        @test Field(String, "Field", optional=true).createfn() isa Vector{Union{Missing, String}}
+        @test Field(String, name = "Field").createfn() isa Vector{String}
+        @test Field(String, name = "Field", optional=true).createfn() isa Vector{Union{Missing, String}}
     end
 end
 
@@ -139,20 +138,20 @@ getfields(registry::Registry) = getfield(registry, :fields)
 
 
 """
-    Registry(name, fields; kwargs...)
+    Registry(fields; kwargs...)
 
 Create a feature registry with columns of [`Field`](#)s.
 
 ## Keyword arguments
 
+- `name::String`: A descriptive name.
+- `fields::NamedTuple`:
 - `description::String = ""`: Description text for the registry. Shown when `info(registry)`
     is called.
 - `loadfn = identity`: Function to apply over a row when [`load`](#) is called. For example,
     calling `load(registry["id"])` will call `loadfn`.
-
-
 """
-function Registry(name, fields; loadfn = identity, description = "", id = (:id,))
+function Registry(fields::NamedTuple; name = "", loadfn = identity, description = "", id = (:id,))
     id = id isa Symbol ? (id,) : id
     data = StructArray(NamedTuple(key => field.createfn() for (key, field) in pairs(fields)))
     index = Dict{Any, Int}()
@@ -218,6 +217,8 @@ Base.sort(registry::Registry, col::Symbol; rev = false) =
         registry,
         view(getdata(registry), sortperm(getproperty(getdata(registry), col); rev)))
 
+Base.view(registry::Registry, inds...) = withdata(registry, view(getdata(registry), inds...))
+
 _index_key(registry::Registry, nt::NamedTuple) =
     Tuple(nt[i] for i in getfield(registry, :id))
 
@@ -246,9 +247,9 @@ end
 # ### Tests for `Registry`
 
 @testset "Registry" begin
-    testregistry() = Registry("Test registry", (
-        id = Field(String, "ID"),
-    ))
+    testregistry() = Registry((
+        id = Field(String, name = "ID"),
+    ), name = "Test registry")
     @test_nowarn testregistry()
 
     @testset "push!" begin
