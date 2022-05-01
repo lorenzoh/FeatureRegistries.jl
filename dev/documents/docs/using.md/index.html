@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!--     <link rel="icon" href="/favicon.png" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <meta http-equiv="content-security-policy" content=""><title>FeatureRegistries.jl</title>
+	<link rel="stylesheet" href="/FeatureRegistries.jl/internal/assets/pages/__layout.svelte-35011fb1.css">
+	<link rel="stylesheet" href="/FeatureRegistries.jl/internal/assets/documentloader-de4e99d0.css">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/start-f087a638.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/chunks/vendor-82c3ebfd.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/chunks/paths-4b3c6e7e.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/pages/__layout.svelte-4bac7188.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/pages/_version_/_...documentId_.svelte-357475fa.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/chunks/documentloader-3557a283.js">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap');
+    </style>
+</head>
+
+<body>
+    <div id="svelte">
+
+
+
+
+<div class="flex lg:flex-row flex-col lg:sticky lg:h-full"><div class="gutter">
+
+
+
+<div class="header border-gray-200 flex flex-col w-full border-b-[1px] lg:sticky lg:top-0 lg:w-72 lg:[min-width:18rem;] lg:max-h-screen lg:min-h-screen lg:h-screen lg:border-b-0 lg:border-r-[1px]"><div class="title flex flex-row items-center p-3"><span class="name content-center text-xl flex-grow font-bold"><a href="/FeatureRegistries.jl/dev/documents/README.md">FeatureRegistries.jl</a></span>
+		<span class="openmenu cursor-pointer flex lg:hidden">
+<svg data-carbon-icon="Menu24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" preserveAspectRatio="xMidYMid meet" aria-hidden focusable="false"><path d="M3 18H21V19.5H3zM3 13.5H21V15H3zM3 9H21V10.5H3zM3 4.5H21V6H3z"></path>
+    
+  </svg></span></div>
+
+	<div class="menu p-3 flex-col hidden [box-shadow:inset_0_0_8px_rgba(0,0,0,.1)] border-t-[1px] lg:flex lg:[box-shadow:none] lg:border-t-0 "><div class="group svelte-1spyzn"><div class="grouptitle svelte-1spyzn">Search</div>
+			<div class="searchwidget svelte-1lm1fh6" style="width: 100%; flex-grow: 3">
+	<div class="searchfield svelte-1lm1fh6">
+<svg data-carbon-icon="Search20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="20" height="20" preserveAspectRatio="xMidYMid meet" style="fill:gray; display:inline" aria-hidden focusable="false"><path d="M29,27.5859l-7.5521-7.5521a11.0177,11.0177,0,1,0-1.4141,1.4141L27.5859,29ZM4,13a9,9,0,1,1,9,9A9.01,9.01,0,0,1,4,13Z"></path>
+    
+  </svg>
+		<input type="text" placeholder="Search for text or code" style="margin-left: 4px; flex-grow: 2; outline:none; background: inherit;" class="svelte-1lm1fh6" value="">
+
+			
+			</div>
+	
+</div></div>
+
+		<div class="group svelte-1spyzn"><div class="grouptitle svelte-1spyzn">Pages</div>
+			<div class="ml-1 mr-1"><div class=""><a class="link svelte-1uqp1tf" href="/FeatureRegistries.jl/dev/documents/README.md">README</a></div><div class=""><a class="link svelte-1uqp1tf" href="/FeatureRegistries.jl/dev/documents/docs/using.md">Using registries</a></div><div class=""><a class="link svelte-1uqp1tf" href="/FeatureRegistries.jl/dev/documents/docs/examples.md">Examples</a></div><div class=""><a class="link svelte-1uqp1tf" href="/FeatureRegistries.jl/dev/references/FeatureRegistries">Reference</a></div></div></div>
+
+		
+		
+
+		
+		<div class="flex-col hidden md:flex group svelte-1spyzn"><div class="grouptitle svelte-1spyzn">This page</div>
+				<a class="linktointeractive svelte-1spyzn" href="/FeatureRegistries.jl/dev/i?id=documents/docs/using.md">Open in interactive viewer</a></div>
+		<div class="group svelte-1spyzn"><div class="grouptitle svelte-1spyzn">Links</div>
+			<a class="text-gray-600 hover:text-gray-900">
+<svg data-carbon-icon="LogoGithub24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="24" height="24" preserveAspectRatio="xMidYMid meet" aria-hidden focusable="false"><path fill-rule="evenodd" d="M16,2a14,14,0,0,0-4.43,27.28c.7.13,1-.3,1-.67s0-1.21,0-2.38c-3.89.84-4.71-1.88-4.71-1.88A3.71,3.71,0,0,0,6.24,22.3c-1.27-.86.1-.85.1-.85A2.94,2.94,0,0,1,8.48,22.9a3,3,0,0,0,4.08,1.16,2.93,2.93,0,0,1,.88-1.87c-3.1-.36-6.37-1.56-6.37-6.92a5.4,5.4,0,0,1,1.44-3.76,5,5,0,0,1,.14-3.7s1.17-.38,3.85,1.43a13.3,13.3,0,0,1,7,0c2.67-1.81,3.84-1.43,3.84-1.43a5,5,0,0,1,.14,3.7,5.4,5.4,0,0,1,1.44,3.76c0,5.38-3.27,6.56-6.39,6.91a3.33,3.33,0,0,1,.95,2.59c0,1.87,0,3.38,0,3.84s.25.81,1,.67A14,14,0,0,0,16,2Z"></path>
+    
+  </svg></a></div></div>
+</div></div>
+		<div class="content h-max p-4 sm:w-full md:max-w-2xl"><div class="document document"><div class="markdown">
+			<div class="md ">
+			<h1 class="">
+			Using registries</h1>
+			<p class="subtitle">
+			This page gives an overview of how to use registries to list and search for features.</p>
+			<p class="">
+			A feature registry is a 
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.Registry" class="reference symbol ">
+			<span class="code"><code class="codeinline ">
+			Registry</code></span></a>
+	
+			 object that a package makes available to its users so that they can discover the package’s features. Let’s look at an example registry:</p>
+			<div class="codecell ">
+			<div class="codeinput ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<span class="julia ">
+			<span class="USING ">
+			<span class="USING ">
+			using</span>
+			<span class="DOT ">
+			<span class="WHITESPACE ">
+			 </span>
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries" class="reference symbol ">
+			FeatureRegistries</a>
+	</span></span>
+			<span class="NEWLINE_WS ">
+			
+</span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="CALL ">
+			<span class="DOT ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries" class="reference symbol ">
+			FeatureRegistries</a>
+	
+			<span class="DOT ">
+			.</span>
+			<span class="QUOTE ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.exampleregistry" class="reference symbol ">
+			exampleregistry</a>
+	</span></span>
+			<span class="LPAREN ">
+			(</span>
+			<span class="RPAREN ">
+			)</span></span></span></span></code></pre></div>
+			<div class="coderesult ">
+			<!-- HTML_TAG_START --><table>
+  <caption style = "text-align: left;">Mathematical functions</caption>
+  <thead>
+    <tr class = "header">
+      <th style = "text-align: left;">ID</th>
+      <th style = "text-align: left;">Category</th>
+      <th style = "text-align: left;">Function instance</th>
+    </tr>
+    <tr class = "subheader headerLastRow">
+      <th style = "text-align: left;">:id</th>
+      <th style = "text-align: left;">:category</th>
+      <th style = "text-align: left;">:instance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"sin"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">sin (generic function with 14 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"tan"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">tan (generic function with 13 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"cos"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">cos (generic function with 14 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"log2"</span></td>
+      <td style = "text-align: left;">:logarithmic</td>
+      <td style = "text-align: left;">log2 (generic function with 9 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"log"</span></td>
+      <td style = "text-align: left;">:logarithmic</td>
+      <td style = "text-align: left;">log (generic function with 24 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"log1p"</span></td>
+      <td style = "text-align: left;">:logarithmic</td>
+      <td style = "text-align: left;">log1p (generic function with 10 methods)</td>
+    </tr>
+  </tbody>
+</table>
+<!-- HTML_TAG_END --></div></div>
+			<p class="">
+			Each entry in a field consists of multiple fields, one of which is a unique ID. We can get more information on a registry’s fields using 
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.info" class="reference symbol ">
+			<span class="code"><code class="codeinline ">
+			info</code></span></a>
+	
+			:</p>
+			<div class="codecell ">
+			<div class="codeinput ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<span class="julia ">
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.info" class="reference symbol ">
+			info</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="RPAREN ">
+			)</span></span></span></code></pre></div>
+			<div class="coderesult ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<!-- HTML_TAG_START -->Fields in registry &quot;Mathematical functions&quot;
+ <span class="sgr1"> Name              </span> <span class="sgr1"> Column    </span> <span class="sgr1"> Type     </span> <span class="sgr1"> Description                           </span>
+  ID                  <span class="sgr31"><span class="sgr1">:id (ID) </span></span>   <span class="sgr90">String  </span>
+  Category            :category   <span class="sgr90">Symbol  </span>   The category of mathematical function
+  Function instance   :instance   <span class="sgr90">Function</span>   The Julia function object
+<!-- HTML_TAG_END --></code></pre></div></div>
+			<p class="">
+			We can see that the 
+			<span class="code"><code class="codeinline ">
+			:id</code></span>
+			 column gives each entry’s unique ID.</p>
+			<h2 class="">
+			Loading features</h2>
+			<p class="">
+			We can index into the registry with a valid ID to get a 
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.RegistryEntry" class="reference symbol ">
+			<span class="code"><code class="codeinline ">
+			RegistryEntry</code></span></a>
+	
+			:</p>
+			<div class="codecell ">
+			<div class="codeinput ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<span class="julia ">
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			entry</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="REF ">
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="LSQUARE ">
+			[</span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			log</span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="RSQUARE ">
+			]</span></span></span></span></code></pre></div>
+			<div class="coderesult ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<!-- HTML_TAG_START -->RegistryEntry(<span class="sgr1">                                                                    </span>
+          id  =  <span class="sgr32">&quot;log&quot;                                 </span>  <span class="sgr90">(String)  </span>
+    category  =  :logarithmic                            <span class="sgr90">(Symbol)  </span>
+    instance  =  log (generic function with 24 methods)  <span class="sgr90">(Function)</span>
+)<!-- HTML_TAG_END --></code></pre></div></div>
+			<p class="">
+			Each of the fields can be accessed using property syntax:</p>
+			<div class="codecell ">
+			<div class="codeinput ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<span class="julia ">
+			<span class="TUPLE ">
+			<span class="DOT ">
+			<span class="IDENTIFIER ">
+			entry</span>
+			<span class="DOT ">
+			.</span>
+			<span class="QUOTE ">
+			<span class="IDENTIFIER ">
+			id</span></span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DOT ">
+			<span class="IDENTIFIER ">
+			entry</span>
+			<span class="DOT ">
+			.</span>
+			<span class="QUOTE ">
+			<span class="IDENTIFIER ">
+			category</span></span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DOT ">
+			<span class="IDENTIFIER ">
+			entry</span>
+			<span class="DOT ">
+			.</span>
+			<span class="QUOTE ">
+			<span class="IDENTIFIER ">
+			instance</span></span></span></span></span></code></pre></div>
+			<div class="coderesult ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<!-- HTML_TAG_START -->(&quot;log&quot;, :logarithmic, log)<!-- HTML_TAG_END --></code></pre></div></div>
+			<p class="">
+			For every kind of feature, there should be a canonical way to load that functionality for usage. For example, in a registry of datasets loading an entry could mean downloading and unpacking the data to return a local file path. Different registries will have different loading behavior which can be invoked by calling 
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.load" class="reference symbol ">
+			<span class="code"><code class="codeinline ">
+			load</code></span></a>
+	
+			 on an entry.</p>
+			<p class="">
+			In the above toy example, after finding a suitable function, we want to call it, so 
+			<span class="code"><code class="codeinline ">
+			load</code></span>
+			 returns the Julia object:</p>
+			<div class="codecell ">
+			<div class="codeinput ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<span class="julia ">
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			fn</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.load" class="reference symbol ">
+			load</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			entry</span>
+			<span class="RPAREN ">
+			)</span></span></span>
+			<span class="NEWLINE_WS ">
+			
+</span>
+			<span class="CALL ">
+			<span class="IDENTIFIER ">
+			fn</span>
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			ℯ</span>
+			<span class="RPAREN ">
+			)</span></span></span></code></pre></div>
+			<div class="coderesult ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<!-- HTML_TAG_START -->1<!-- HTML_TAG_END --></code></pre></div></div>
+			<h2 class="">
+			Searching for features</h2>
+			<p class="">
+			A large registry with many entries and columns can quickly become unwieldy when searching for features. Using 
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.find" class="reference symbol ">
+			<span class="code"><code class="codeinline ">
+			find</code></span></a>
+	
+			 (or 
+			<span class="code"><code class="codeinline ">
+			filter</code></span>
+			), we can quickly subset the features based on a registry’s fields.</p>
+			<p class="">
+			We can match fields against exact values:</p>
+			<div class="codecell ">
+			<div class="codeinput ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<span class="julia ">
+			<span class="COMMENT ">
+			# All entries where the category matches the value</span>
+			<span class="NEWLINE_WS ">
+			
+</span>
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.find" class="reference symbol ">
+			find</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			category</span>
+			<span class="EQ ">
+			=</span>
+			<span class="QUOTE ">
+			<span class="COLON ">
+			:</span>
+			<span class="IDENTIFIER ">
+			trigonometric</span></span></span>
+			<span class="RPAREN ">
+			)</span></span></span></code></pre></div>
+			<div class="coderesult ">
+			<!-- HTML_TAG_START --><table>
+  <caption style = "text-align: left;">Mathematical functions</caption>
+  <thead>
+    <tr class = "header">
+      <th style = "text-align: left;">ID</th>
+      <th style = "text-align: left;">Category</th>
+      <th style = "text-align: left;">Function instance</th>
+    </tr>
+    <tr class = "subheader headerLastRow">
+      <th style = "text-align: left;">:id</th>
+      <th style = "text-align: left;">:category</th>
+      <th style = "text-align: left;">:instance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"sin"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">sin (generic function with 14 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"tan"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">tan (generic function with 13 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"cos"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">cos (generic function with 14 methods)</td>
+    </tr>
+  </tbody>
+</table>
+<!-- HTML_TAG_END --></div></div>
+			<p class="">
+			And some types like 
+			<span class="code"><code class="codeinline ">
+			String</code></span>
+			 accept additional filters, like a 
+			<span class="code"><code class="codeinline ">
+			Regex</code></span>
+			:</p>
+			<div class="codecell ">
+			<div class="codeinput ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<span class="julia ">
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.find" class="reference symbol ">
+			find</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="MACROCALL ">
+			<span class="STRING_MACRO_NAME ">
+			r</span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			s</span>
+			<span class="DQUOTE ">
+			&quot;</span></span></span>
+			<span class="RPAREN ">
+			)</span></span></span></code></pre></div>
+			<div class="coderesult ">
+			<!-- HTML_TAG_START --><table>
+  <caption style = "text-align: left;">Mathematical functions</caption>
+  <thead>
+    <tr class = "header">
+      <th style = "text-align: left;">ID</th>
+      <th style = "text-align: left;">Category</th>
+      <th style = "text-align: left;">Function instance</th>
+    </tr>
+    <tr class = "subheader headerLastRow">
+      <th style = "text-align: left;">:id</th>
+      <th style = "text-align: left;">:category</th>
+      <th style = "text-align: left;">:instance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"sin"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">sin (generic function with 14 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"cos"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">cos (generic function with 14 methods)</td>
+    </tr>
+  </tbody>
+</table>
+<!-- HTML_TAG_END --></div></div>
+			<p class="">
+			We can always filter based on an arbitrary predicate:</p>
+			<div class="codecell ">
+			<div class="codeinput ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<span class="julia ">
+			<span class="COMMENT ">
+			# Using arbitrary predicates</span>
+			<span class="NEWLINE_WS ">
+			
+</span>
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.find" class="reference symbol ">
+			find</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="ANON_FUNC ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="ANON_FUNC ">
+			-&gt;</span>
+			<span class="CALL ">
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="CALL ">
+			<span class="IDENTIFIER ">
+			length</span>
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="LESS_EQ ">
+			&lt;=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="INTEGER ">
+			3</span></span></span></span>
+			<span class="RPAREN ">
+			)</span></span></span></code></pre></div>
+			<div class="coderesult ">
+			<!-- HTML_TAG_START --><table>
+  <caption style = "text-align: left;">Mathematical functions</caption>
+  <thead>
+    <tr class = "header">
+      <th style = "text-align: left;">ID</th>
+      <th style = "text-align: left;">Category</th>
+      <th style = "text-align: left;">Function instance</th>
+    </tr>
+    <tr class = "subheader headerLastRow">
+      <th style = "text-align: left;">:id</th>
+      <th style = "text-align: left;">:category</th>
+      <th style = "text-align: left;">:instance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"sin"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">sin (generic function with 14 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"tan"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">tan (generic function with 13 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"cos"</span></td>
+      <td style = "text-align: left;">:trigonometric</td>
+      <td style = "text-align: left;">cos (generic function with 14 methods)</td>
+    </tr>
+    <tr>
+      <td style = "text-align: left;"><span style="color:#073;">"log"</span></td>
+      <td style = "text-align: left;">:logarithmic</td>
+      <td style = "text-align: left;">log (generic function with 24 methods)</td>
+    </tr>
+  </tbody>
+</table>
+<!-- HTML_TAG_END --></div></div></div></div>
+
+<div class="more"><div class="admonition"><div class="admonitiontitle">
+<svg data-carbon-icon="Link20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="20" height="20" class="icon" preserveAspectRatio="xMidYMid meet" aria-hidden focusable="false"><path d="M29.25,6.76a6,6,0,0,0-8.5,0l1.42,1.42a4,4,0,1,1,5.67,5.67l-8,8a4,4,0,1,1-5.67-5.66l1.41-1.42-1.41-1.42-1.42,1.42a6,6,0,0,0,0,8.5A6,6,0,0,0,17,25a6,6,0,0,0,4.27-1.76l8-8A6,6,0,0,0,29.25,6.76Z"></path><path d="M4.19,24.82a4,4,0,0,1,0-5.67l8-8a4,4,0,0,1,5.67,0A3.94,3.94,0,0,1,19,14a4,4,0,0,1-1.17,2.85L15.71,19l1.42,1.42,2.12-2.12a6,6,0,0,0-8.51-8.51l-8,8a6,6,0,0,0,0,8.51A6,6,0,0,0,7,28a6.07,6.07,0,0,0,4.28-1.76L9.86,24.82A4,4,0,0,1,4.19,24.82Z"></path>
+    
+  </svg> Backlinks</div>
+	<div class="admonitionbody"><div class="backlinks svelte-ytmwmt"><p>The following pages link back here:</p>
+				<p><a href="/FeatureRegistries.jl/dev/documents/README.md" class="reference document ">FeatureRegistries.jl</a>
+	</p>
+				<p></p>
+				<p></p></div></div>
+</div></div></div></div></div>
+
+
+		<script type="module" data-hydrate="106lzo4">
+		import { start } from "/FeatureRegistries.jl/internal/start-f087a638.js";
+		start({
+			target: document.querySelector('[data-hydrate="106lzo4"]').parentNode,
+			paths: {"base":"/FeatureRegistries.jl","assets":"/FeatureRegistries.jl"},
+			session: {},
+			route: false,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/FeatureRegistries.jl/internal/pages/__layout.svelte-4bac7188.js"),
+						import("/FeatureRegistries.jl/internal/pages/_version_/_...documentId_.svelte-357475fa.js")
+				],
+				url: new URL("http://sveltekit-prerender/FeatureRegistries.jl/dev/documents/docs/using.md"),
+				params: {version:"dev",documentId:"documents\u002Fdocs\u002Fusing.md"}
+			}
+		});
+	</script><script type="application/json" data-type="svelte-data" data-url="/FeatureRegistries.jl/data/dev/attributes.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"references\u002FFeatureRegistries._showentry\":{\"tag\":\"documentation\",\"title\":\"_showentry\"},\"references\u002FFeatureRegistries.registrytable\":{\"tag\":\"documentation\",\"title\":\"registrytable\"},\"references\u002FFeatureRegistries\":{\"tag\":\"documentation\",\"title\":\"FeatureRegistries\"},\"references\u002FFeatureRegistries.RegistryInfo\":{\"tag\":\"documentation\",\"title\":\"RegistryInfo\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Ffind.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Ffind.jl\"},\"references\u002FFeatureRegistries.find\":{\"tag\":\"documentation\",\"title\":\"find\"},\"references\u002FFeatureRegistries.getdata\":{\"tag\":\"documentation\",\"title\":\"getdata\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Finfo.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Finfo.jl\"},\"documents\u002Fdocs\u002Fusing.md\":{\"tag\":\"document\",\"title\":\"Using registries\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Fprinting.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Fprinting.jl\"},\"documents\u002Fdocs\u002Fexamples\u002Fcolors.md\":{\"tag\":\"document\",\"title\":\"Example: Named colors in Colors.jl\"},\"references\u002FFeatureRegistries.Field\":{\"tag\":\"documentation\",\"title\":\"Field\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002FFeatureRegistries.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002FFeatureRegistries.jl\"},\"references\u002FFeatureRegistries.load\":{\"tag\":\"documentation\",\"title\":\"load\"},\"references\u002FFeatureRegistries.##InlineTest-01b48f5c342f65df7fcd07f28f0d2cacbb09f0a0.__init__\":{\"tag\":\"documentation\",\"title\":\"__init__\"},\"references\u002FFeatureRegistries.RequiredKeyMissingError\":{\"tag\":\"documentation\",\"title\":\"RequiredKeyMissingError\"},\"references\u002FFeatureRegistries.RichCell\":{\"tag\":\"documentation\",\"title\":\"RichCell\"},\"references\u002FFeatureRegistries.##InlineTest-01b48f5c342f65df7fcd07f28f0d2cacbb09f0a0.tests\":{\"tag\":\"documentation\",\"title\":\"tests\"},\"references\u002FFeatureRegistries.DuplicateIDError\":{\"tag\":\"documentation\",\"title\":\"DuplicateIDError\"},\"references\u002FFeatureRegistries._show_image_html\":{\"tag\":\"documentation\",\"title\":\"_show_image_html\"},\"references\u002FFeatureRegistries.runtests\":{\"tag\":\"documentation\",\"title\":\"runtests\"},\"references\u002FFeatureRegistries.getfields\":{\"tag\":\"documentation\",\"title\":\"getfields\"},\"references\u002FFeatureRegistries.exampleregistry\":{\"tag\":\"documentation\",\"title\":\"exampleregistry\"},\"documents\u002FREADME.md\":{\"tag\":\"document\",\"title\":\"FeatureRegistries.jl\"},\"references\u002FFeatureRegistries._fieldtype\":{\"tag\":\"documentation\",\"title\":\"_fieldtype\"},\"references\u002FFeatureRegistries.makerow\":{\"tag\":\"documentation\",\"title\":\"makerow\"},\"references\u002FFeatureRegistries.FeatureRegistries\":{\"tag\":\"documentation\",\"title\":null},\"documents\u002Fdocs\u002Ftutorials\u002Fintroduction.md\":{\"tag\":\"document\",\"title\":\"Introduction\"},\"references\u002FFeatureRegistries._title\":{\"tag\":\"documentation\",\"title\":\"_title\"},\"documents\u002Fdocs\u002Fexamples\u002Ftestimages.md\":{\"tag\":\"document\",\"title\":\"Example: images in TestImages.jl\"},\"references\u002FFeatureRegistries.##InlineTest-01b48f5c342f65df7fcd07f28f0d2cacbb09f0a0.TESTSET_MACROS\":{\"tag\":\"documentation\",\"title\":\"TESTSET_MACROS\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Fregistry.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Fregistry.jl\"},\"references\u002FFeatureRegistries.matchesentry\":{\"tag\":\"documentation\",\"title\":\"matchesentry\"},\"references\u002FFeatureRegistries.Registry\":{\"tag\":\"documentation\",\"title\":\"Registry\"},\"references\u002FFeatureRegistries.IMAGE_MIMES\":{\"tag\":\"documentation\",\"title\":\"IMAGE_MIMES\"},\"references\u002FFeatureRegistries.info\":{\"tag\":\"documentation\",\"title\":\"info\"},\"references\u002FFeatureRegistries._stringhtml\":{\"tag\":\"documentation\",\"title\":\"_stringhtml\"},\"references\u002FFeatureRegistries.RegistryEntry\":{\"tag\":\"documentation\",\"title\":\"RegistryEntry\"},\"references\u002FFeatureRegistries._index_key\":{\"tag\":\"documentation\",\"title\":\"_index_key\"},\"references\u002FFeatureRegistries.withdata\":{\"tag\":\"documentation\",\"title\":\"withdata\"},\"documents\u002Fdocs\u002Fexamples.md\":{\"tag\":\"document\",\"title\":\"Examples\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Ftest.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Ftest.jl\"}}"}</script>
+	<script type="application/json" data-type="svelte-data" data-url="/FeatureRegistries.jl/data/dev/config.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"linktree\":{\"README\":\"documents\u002FREADME.md\",\"Using registries\":\"documents\u002Fdocs\u002Fusing.md\",\"Examples\":\"documents\u002Fdocs\u002Fexamples.md\",\"Reference\":\"references\u002FFeatureRegistries\"},\"columnWidth\":650,\"title\":\"FeatureRegistries.jl\",\"defaultDocument\":\"documents\u002FREADME.md\"}"}</script>
+	<script type="application/json" data-type="svelte-data" data-url="/FeatureRegistries.jl/data/dev/documents/docs/using.md.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"attributes\":{\"backlinks\":[{\"tag\":\"documentation\",\"title\":\"find\",\"docid\":\"references\u002FFeatureRegistries.find\"},{\"tag\":\"document\",\"title\":\"FeatureRegistries.jl\",\"docid\":\"documents\u002FREADME.md\"},{\"tag\":\"documentation\",\"title\":null,\"docid\":\"references\u002FFeatureRegistries.FeatureRegistries\"}],\"path\":\"\u002Fhome\u002Frunner\u002F.julia\u002Fpackages\u002FFeatureRegistries\u002Fo8XgC\u002Fdocs\u002Fusing.md\",\"title\":\"Using registries\"},\"tag\":\"document\",\"children\":[{\"attributes\":{},\"tag\":\"md\",\"children\":[{\"attributes\":{},\"tag\":\"h1\",\"children\":[\"Using registries\"],\"type\":\"node\"},{\"attributes\":{\"class\":\"subtitle\"},\"tag\":\"p\",\"children\":[\"This page gives an overview of how to use registries to list and search for features.\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"A feature registry is a \",{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.Registry\"},\"tag\":\"reference\",\"children\":[{\"attributes\":{},\"tag\":\"code\",\"children\":[\"Registry\"],\"type\":\"node\"}],\"type\":\"node\"},\" object that a package makes available to its users so that they can discover the package’s features. Let’s look at an example registry:\"],\"type\":\"node\"},{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codecell\",\"children\":[{\"attributes\":{},\"tag\":\"codeinput\",\"children\":[{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codeblock\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{},\"tag\":\"USING\",\"children\":[{\"attributes\":{},\"tag\":\"USING\",\"children\":[\"using\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DOT\",\"children\":[{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries\"},\"tag\":\"reference\",\"children\":[\"FeatureRegistries\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"DOT\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries\"},\"tag\":\"reference\",\"children\":[\"FeatureRegistries\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DOT\",\"children\":[\".\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.exampleregistry\"},\"tag\":\"reference\",\"children\":[\"exampleregistry\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"coderesult\",\"children\":[{\"mimes\":{\"text\u002Fhtml\":\"\u003Ctable\u003E\\n  \u003Ccaption style = \\\"text-align: left;\\\"\u003EMathematical functions\u003C\u002Fcaption\u003E\\n  \u003Cthead\u003E\\n    \u003Ctr class = \\\"header\\\"\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003EID\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003ECategory\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003EFunction instance\u003C\u002Fth\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr class = \\\"subheader headerLastRow\\\"\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:id\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:category\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:instance\u003C\u002Fth\u003E\\n    \u003C\u002Ftr\u003E\\n  \u003C\u002Fthead\u003E\\n  \u003Ctbody\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"sin\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Esin (generic function with 14 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"tan\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Etan (generic function with 13 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"cos\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Ecos (generic function with 14 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"log2\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:logarithmic\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Elog2 (generic function with 9 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"log\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:logarithmic\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Elog (generic function with 24 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"log1p\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:logarithmic\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Elog1p (generic function with 10 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n  \u003C\u002Ftbody\u003E\\n\u003C\u002Ftable\u003E\\n\"},\"type\":\"leaf\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"Each entry in a field consists of multiple fields, one of which is a unique ID. We can get more information on a registry’s fields using \",{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.info\"},\"tag\":\"reference\",\"children\":[{\"attributes\":{},\"tag\":\"code\",\"children\":[\"info\"],\"type\":\"node\"}],\"type\":\"node\"},\":\"],\"type\":\"node\"},{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codecell\",\"children\":[{\"attributes\":{},\"tag\":\"codeinput\",\"children\":[{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codeblock\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.info\"},\"tag\":\"reference\",\"children\":[\"info\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"coderesult\",\"children\":[{\"attributes\":{},\"tag\":\"codeblock\",\"children\":[{\"mimes\":{\"text\u002Fhtml\":\"Fields in registry &quot;Mathematical functions&quot;\\n \u003Cspan class=\\\"sgr1\\\"\u003E Name              \u003C\u002Fspan\u003E \u003Cspan class=\\\"sgr1\\\"\u003E Column    \u003C\u002Fspan\u003E \u003Cspan class=\\\"sgr1\\\"\u003E Type     \u003C\u002Fspan\u003E \u003Cspan class=\\\"sgr1\\\"\u003E Description                           \u003C\u002Fspan\u003E\\n  ID                  \u003Cspan class=\\\"sgr31\\\"\u003E\u003Cspan class=\\\"sgr1\\\"\u003E:id (ID) \u003C\u002Fspan\u003E\u003C\u002Fspan\u003E   \u003Cspan class=\\\"sgr90\\\"\u003EString  \u003C\u002Fspan\u003E\\n  Category            :category   \u003Cspan class=\\\"sgr90\\\"\u003ESymbol  \u003C\u002Fspan\u003E   The category of mathematical function\\n  Function instance   :instance   \u003Cspan class=\\\"sgr90\\\"\u003EFunction\u003C\u002Fspan\u003E   The Julia function object\\n\"},\"type\":\"leaf\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"We can see that the \",{\"attributes\":{},\"tag\":\"code\",\"children\":[\":id\"],\"type\":\"node\"},\" column gives each entry’s unique ID.\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"h2\",\"children\":[\"Loading features\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"We can index into the registry with a valid ID to get a \",{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.RegistryEntry\"},\"tag\":\"reference\",\"children\":[{\"attributes\":{},\"tag\":\"code\",\"children\":[\"RegistryEntry\"],\"type\":\"node\"}],\"type\":\"node\"},\":\"],\"type\":\"node\"},{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codecell\",\"children\":[{\"attributes\":{},\"tag\":\"codeinput\",\"children\":[{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codeblock\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"entry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"REF\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LSQUARE\",\"children\":[\"[\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"log\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RSQUARE\",\"children\":[\"]\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"coderesult\",\"children\":[{\"attributes\":{},\"tag\":\"codeblock\",\"children\":[{\"mimes\":{\"text\u002Fhtml\":\"RegistryEntry(\u003Cspan class=\\\"sgr1\\\"\u003E                                                                    \u003C\u002Fspan\u003E\\n          id  =  \u003Cspan class=\\\"sgr32\\\"\u003E&quot;log&quot;                                 \u003C\u002Fspan\u003E  \u003Cspan class=\\\"sgr90\\\"\u003E(String)  \u003C\u002Fspan\u003E\\n    category  =  :logarithmic                            \u003Cspan class=\\\"sgr90\\\"\u003E(Symbol)  \u003C\u002Fspan\u003E\\n    instance  =  log (generic function with 24 methods)  \u003Cspan class=\\\"sgr90\\\"\u003E(Function)\u003C\u002Fspan\u003E\\n)\"},\"type\":\"leaf\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"Each of the fields can be accessed using property syntax:\"],\"type\":\"node\"},{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codecell\",\"children\":[{\"attributes\":{},\"tag\":\"codeinput\",\"children\":[{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codeblock\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{},\"tag\":\"TUPLE\",\"children\":[{\"attributes\":{},\"tag\":\"DOT\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"entry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DOT\",\"children\":[\".\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DOT\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"entry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DOT\",\"children\":[\".\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"category\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DOT\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"entry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DOT\",\"children\":[\".\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"instance\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"coderesult\",\"children\":[{\"attributes\":{},\"tag\":\"codeblock\",\"children\":[{\"mimes\":{\"text\u002Fhtml\":\"(&quot;log&quot;, :logarithmic, log)\"},\"type\":\"leaf\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"For every kind of feature, there should be a canonical way to load that functionality for usage. For example, in a registry of datasets loading an entry could mean downloading and unpacking the data to return a local file path. Different registries will have different loading behavior which can be invoked by calling \",{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.load\"},\"tag\":\"reference\",\"children\":[{\"attributes\":{},\"tag\":\"code\",\"children\":[\"load\"],\"type\":\"node\"}],\"type\":\"node\"},\" on an entry.\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"In the above toy example, after finding a suitable function, we want to call it, so \",{\"attributes\":{},\"tag\":\"code\",\"children\":[\"load\"],\"type\":\"node\"},\" returns the Julia object:\"],\"type\":\"node\"},{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codecell\",\"children\":[{\"attributes\":{},\"tag\":\"codeinput\",\"children\":[{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codeblock\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"fn\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.load\"},\"tag\":\"reference\",\"children\":[\"load\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"entry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"fn\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"ℯ\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"coderesult\",\"children\":[{\"attributes\":{},\"tag\":\"codeblock\",\"children\":[{\"mimes\":{\"text\u002Fhtml\":\"1\"},\"type\":\"leaf\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"h2\",\"children\":[\"Searching for features\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"A large registry with many entries and columns can quickly become unwieldy when searching for features. Using \",{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.find\"},\"tag\":\"reference\",\"children\":[{\"attributes\":{},\"tag\":\"code\",\"children\":[\"find\"],\"type\":\"node\"}],\"type\":\"node\"},\" (or \",{\"attributes\":{},\"tag\":\"code\",\"children\":[\"filter\"],\"type\":\"node\"},\"), we can quickly subset the features based on a registry’s fields.\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"We can match fields against exact values:\"],\"type\":\"node\"},{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codecell\",\"children\":[{\"attributes\":{},\"tag\":\"codeinput\",\"children\":[{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codeblock\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{},\"tag\":\"COMMENT\",\"children\":[\"# All entries where the category matches the value\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.find\"},\"tag\":\"reference\",\"children\":[\"find\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"category\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"COLON\",\"children\":[\":\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"trigonometric\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"coderesult\",\"children\":[{\"mimes\":{\"text\u002Fhtml\":\"\u003Ctable\u003E\\n  \u003Ccaption style = \\\"text-align: left;\\\"\u003EMathematical functions\u003C\u002Fcaption\u003E\\n  \u003Cthead\u003E\\n    \u003Ctr class = \\\"header\\\"\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003EID\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003ECategory\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003EFunction instance\u003C\u002Fth\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr class = \\\"subheader headerLastRow\\\"\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:id\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:category\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:instance\u003C\u002Fth\u003E\\n    \u003C\u002Ftr\u003E\\n  \u003C\u002Fthead\u003E\\n  \u003Ctbody\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"sin\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Esin (generic function with 14 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"tan\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Etan (generic function with 13 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"cos\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Ecos (generic function with 14 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n  \u003C\u002Ftbody\u003E\\n\u003C\u002Ftable\u003E\\n\"},\"type\":\"leaf\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"And some types like \",{\"attributes\":{},\"tag\":\"code\",\"children\":[\"String\"],\"type\":\"node\"},\" accept additional filters, like a \",{\"attributes\":{},\"tag\":\"code\",\"children\":[\"Regex\"],\"type\":\"node\"},\":\"],\"type\":\"node\"},{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codecell\",\"children\":[{\"attributes\":{},\"tag\":\"codeinput\",\"children\":[{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codeblock\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.find\"},\"tag\":\"reference\",\"children\":[\"find\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"MACROCALL\",\"children\":[{\"attributes\":{},\"tag\":\"STRING_MACRO_NAME\",\"children\":[\"r\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"s\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"coderesult\",\"children\":[{\"mimes\":{\"text\u002Fhtml\":\"\u003Ctable\u003E\\n  \u003Ccaption style = \\\"text-align: left;\\\"\u003EMathematical functions\u003C\u002Fcaption\u003E\\n  \u003Cthead\u003E\\n    \u003Ctr class = \\\"header\\\"\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003EID\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003ECategory\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003EFunction instance\u003C\u002Fth\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr class = \\\"subheader headerLastRow\\\"\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:id\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:category\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:instance\u003C\u002Fth\u003E\\n    \u003C\u002Ftr\u003E\\n  \u003C\u002Fthead\u003E\\n  \u003Ctbody\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"sin\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Esin (generic function with 14 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"cos\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Ecos (generic function with 14 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n  \u003C\u002Ftbody\u003E\\n\u003C\u002Ftable\u003E\\n\"},\"type\":\"leaf\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"p\",\"children\":[\"We can always filter based on an arbitrary predicate:\"],\"type\":\"node\"},{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codecell\",\"children\":[{\"attributes\":{},\"tag\":\"codeinput\",\"children\":[{\"attributes\":{\"cell\":\"\",\"lang\":\"julia\"},\"tag\":\"codeblock\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{},\"tag\":\"COMMENT\",\"children\":[\"# Using arbitrary predicates\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.find\"},\"tag\":\"reference\",\"children\":[\"find\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"ANON_FUNC\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"ANON_FUNC\",\"children\":[\"-\u003E\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"length\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LESS_EQ\",\"children\":[\"\u003C=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"INTEGER\",\"children\":[\"3\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"coderesult\",\"children\":[{\"mimes\":{\"text\u002Fhtml\":\"\u003Ctable\u003E\\n  \u003Ccaption style = \\\"text-align: left;\\\"\u003EMathematical functions\u003C\u002Fcaption\u003E\\n  \u003Cthead\u003E\\n    \u003Ctr class = \\\"header\\\"\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003EID\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003ECategory\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003EFunction instance\u003C\u002Fth\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr class = \\\"subheader headerLastRow\\\"\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:id\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:category\u003C\u002Fth\u003E\\n      \u003Cth style = \\\"text-align: left;\\\"\u003E:instance\u003C\u002Fth\u003E\\n    \u003C\u002Ftr\u003E\\n  \u003C\u002Fthead\u003E\\n  \u003Ctbody\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"sin\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Esin (generic function with 14 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"tan\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Etan (generic function with 13 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"cos\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:trigonometric\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Ecos (generic function with 14 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n    \u003Ctr\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E\u003Cspan style=\\\"color:#073;\\\"\u003E\\\"log\\\"\u003C\u002Fspan\u003E\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003E:logarithmic\u003C\u002Ftd\u003E\\n      \u003Ctd style = \\\"text-align: left;\\\"\u003Elog (generic function with 24 methods)\u003C\u002Ftd\u003E\\n    \u003C\u002Ftr\u003E\\n  \u003C\u002Ftbody\u003E\\n\u003C\u002Ftable\u003E\\n\"},\"type\":\"leaf\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}"}</script></div>
+</body>
+
+</html>

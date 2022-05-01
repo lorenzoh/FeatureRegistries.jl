@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <!--     <link rel="icon" href="/favicon.png" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <meta http-equiv="content-security-policy" content=""><title>FeatureRegistries.jl</title>
+	<link rel="stylesheet" href="/FeatureRegistries.jl/internal/assets/pages/__layout.svelte-35011fb1.css">
+	<link rel="stylesheet" href="/FeatureRegistries.jl/internal/assets/documentloader-de4e99d0.css">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/start-f087a638.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/chunks/vendor-82c3ebfd.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/chunks/paths-4b3c6e7e.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/pages/__layout.svelte-4bac7188.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/pages/_version_/_...documentId_.svelte-357475fa.js">
+	<link rel="modulepreload" href="/FeatureRegistries.jl/internal/chunks/documentloader-3557a283.js">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&display=swap');
+    </style>
+</head>
+
+<body>
+    <div id="svelte">
+
+
+
+
+<div class="flex lg:flex-row flex-col lg:sticky lg:h-full"><div class="gutter">
+
+
+
+<div class="header border-gray-200 flex flex-col w-full border-b-[1px] lg:sticky lg:top-0 lg:w-72 lg:[min-width:18rem;] lg:max-h-screen lg:min-h-screen lg:h-screen lg:border-b-0 lg:border-r-[1px]"><div class="title flex flex-row items-center p-3"><span class="name content-center text-xl flex-grow font-bold"><a href="/FeatureRegistries.jl/dev/documents/README.md">FeatureRegistries.jl</a></span>
+		<span class="openmenu cursor-pointer flex lg:hidden">
+<svg data-carbon-icon="Menu24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24" preserveAspectRatio="xMidYMid meet" aria-hidden focusable="false"><path d="M3 18H21V19.5H3zM3 13.5H21V15H3zM3 9H21V10.5H3zM3 4.5H21V6H3z"></path>
+    
+  </svg></span></div>
+
+	<div class="menu p-3 flex-col hidden [box-shadow:inset_0_0_8px_rgba(0,0,0,.1)] border-t-[1px] lg:flex lg:[box-shadow:none] lg:border-t-0 "><div class="group svelte-1spyzn"><div class="grouptitle svelte-1spyzn">Search</div>
+			<div class="searchwidget svelte-1lm1fh6" style="width: 100%; flex-grow: 3">
+	<div class="searchfield svelte-1lm1fh6">
+<svg data-carbon-icon="Search20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="20" height="20" preserveAspectRatio="xMidYMid meet" style="fill:gray; display:inline" aria-hidden focusable="false"><path d="M29,27.5859l-7.5521-7.5521a11.0177,11.0177,0,1,0-1.4141,1.4141L27.5859,29ZM4,13a9,9,0,1,1,9,9A9.01,9.01,0,0,1,4,13Z"></path>
+    
+  </svg>
+		<input type="text" placeholder="Search for text or code" style="margin-left: 4px; flex-grow: 2; outline:none; background: inherit;" class="svelte-1lm1fh6" value="">
+
+			
+			</div>
+	
+</div></div>
+
+		<div class="group svelte-1spyzn"><div class="grouptitle svelte-1spyzn">Pages</div>
+			<div class="ml-1 mr-1"><div class=""><a class="link svelte-1uqp1tf" href="/FeatureRegistries.jl/dev/documents/README.md">README</a></div><div class=""><a class="link svelte-1uqp1tf" href="/FeatureRegistries.jl/dev/documents/docs/using.md">Using registries</a></div><div class=""><a class="link svelte-1uqp1tf" href="/FeatureRegistries.jl/dev/documents/docs/examples.md">Examples</a></div><div class=""><a class="link svelte-1uqp1tf" href="/FeatureRegistries.jl/dev/references/FeatureRegistries">Reference</a></div></div></div>
+
+		
+		
+
+		
+		<div class="flex-col hidden md:flex group svelte-1spyzn"><div class="grouptitle svelte-1spyzn">This page</div>
+				<a class="linktointeractive svelte-1spyzn" href="/FeatureRegistries.jl/dev/i?id=sourcefiles/FeatureRegistries/src/test.jl">Open in interactive viewer</a></div>
+		<div class="group svelte-1spyzn"><div class="grouptitle svelte-1spyzn">Links</div>
+			<a class="text-gray-600 hover:text-gray-900">
+<svg data-carbon-icon="LogoGithub24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="24" height="24" preserveAspectRatio="xMidYMid meet" aria-hidden focusable="false"><path fill-rule="evenodd" d="M16,2a14,14,0,0,0-4.43,27.28c.7.13,1-.3,1-.67s0-1.21,0-2.38c-3.89.84-4.71-1.88-4.71-1.88A3.71,3.71,0,0,0,6.24,22.3c-1.27-.86.1-.85.1-.85A2.94,2.94,0,0,1,8.48,22.9a3,3,0,0,0,4.08,1.16,2.93,2.93,0,0,1,.88-1.87c-3.1-.36-6.37-1.56-6.37-6.92a5.4,5.4,0,0,1,1.44-3.76,5,5,0,0,1,.14-3.7s1.17-.38,3.85,1.43a13.3,13.3,0,0,1,7,0c2.67-1.81,3.84-1.43,3.84-1.43a5,5,0,0,1,.14,3.7,5.4,5.4,0,0,1,1.44,3.76c0,5.38-3.27,6.56-6.39,6.91a3.33,3.33,0,0,1,.95,2.59c0,1.87,0,3.38,0,3.84s.25.81,1,.67A14,14,0,0,0,16,2Z"></path>
+    
+  </svg></a></div></div>
+</div></div>
+		<div class="content h-max p-4 sm:w-full md:max-w-2xl"><div class="document sourcefile"><div class="sourcefile markdown"><h1 class="svelte-1mq1d3s"><span class="headertext filename svelte-1mq1d3s">test.jl</span>
+		<span class="icon svelte-1mq1d3s">
+<svg data-carbon-icon="Script32" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" width="32" height="32" preserveAspectRatio="xMidYMid meet" style="fill: gray; display: inline;" aria-hidden focusable="false"><path d="M18.83 26L21.41 23.42 20 22 16 26 20 30 21.42 28.59 18.83 26zM27.17 26L24.59 28.58 26 30 30 26 26 22 24.58 23.41 27.17 26z"></path><path d="M14,28H8V4h8v6a2.0058,2.0058,0,0,0,2,2h6v6h2V10a.9092.9092,0,0,0-.3-.7l-7-7A.9087.9087,0,0,0,18,2H8A2.0058,2.0058,0,0,0,6,4V28a2.0058,2.0058,0,0,0,2,2h6ZM18,4.4,23.6,10H18Z"></path>
+    
+  </svg></span></h1>
+	<div class="subtitle">o8XgC/src/
+		is a source file in module <code class="codeinline ">o8XgC</code>
+	</div>
+	<div class="source julia">
+			<span class="julia ">
+			<pre class="codeblock codeblock svelte-vj8ryq"><code class="svelte-vj8ryq">
+			<span class="julia ">
+			<span class="FUNCTION ">
+			<span class="FUNCTION ">
+			function</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.exampleregistry" class="reference symbol ">
+			exampleregistry</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="BLOCK ">
+			<span class="NEWLINE_WS ">
+			
+</span>
+			<span class="NEWLINE_WS ">
+			
+    </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.Registry" class="reference symbol ">
+			Registry</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="NEWLINE_WS ">
+			
+        </span>
+			<span class="TUPLE ">
+			<span class="LPAREN ">
+			(</span>
+			<span class="PARAMETERS ">
+			<span class="SEMICOLON ">
+			;</span>
+			<span class="NEWLINE_WS ">
+			
+            </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.Field" class="reference symbol ">
+			Field</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			String</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			name</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			ID</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="RPAREN ">
+			)</span></span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+            </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			category</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.Field" class="reference symbol ">
+			Field</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="NEWLINE_WS ">
+			
+                </span>
+			<span class="IDENTIFIER ">
+			Symbol</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+                </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			name</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			Category</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+                </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			description</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			The category of mathematical function</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+                </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			optional</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="TRUE ">
+			true</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+            </span>
+			<span class="RPAREN ">
+			)</span></span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+            </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			instance</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="CALL ">
+			
+
+
+<a href="/FeatureRegistries.jl/dev/references/FeatureRegistries.Field" class="reference symbol ">
+			Field</a>
+	
+			<span class="LPAREN ">
+			(</span>
+			<span class="NEWLINE_WS ">
+			
+                </span>
+			<span class="IDENTIFIER ">
+			Function</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+                </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			name</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			Function instance</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+                </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			description</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			The Julia function object</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="NEWLINE_WS ">
+			
+            </span>
+			<span class="RPAREN ">
+			)</span></span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+        </span>
+			<span class="RPAREN ">
+			)</span></span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+        </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			name</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			Mathematical functions</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+        </span>
+			<span class="KW ">
+			<span class="IDENTIFIER ">
+			loadfn</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="ANON_FUNC ">
+			<span class="IDENTIFIER ">
+			row</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="ANON_FUNC ">
+			-&gt;</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DOT ">
+			<span class="IDENTIFIER ">
+			row</span>
+			<span class="DOT ">
+			.</span>
+			<span class="QUOTE ">
+			<span class="IDENTIFIER ">
+			instance</span></span></span></span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="NEWLINE_WS ">
+			
+    </span>
+			<span class="RPAREN ">
+			)</span></span></span>
+			<span class="NEWLINE_WS ">
+			
+    </span>
+			<span class="CALL ">
+			<span class="IDENTIFIER ">
+			push!</span>
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="TUPLE ">
+			<span class="LPAREN ">
+			(</span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			sin</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			instance</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="IDENTIFIER ">
+			sin</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			category</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="QUOTE ">
+			<span class="COLON ">
+			:</span>
+			<span class="IDENTIFIER ">
+			trigonometric</span></span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="NEWLINE_WS ">
+			
+    </span>
+			<span class="CALL ">
+			<span class="IDENTIFIER ">
+			push!</span>
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="TUPLE ">
+			<span class="LPAREN ">
+			(</span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			tan</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			instance</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="IDENTIFIER ">
+			tan</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			category</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="QUOTE ">
+			<span class="COLON ">
+			:</span>
+			<span class="IDENTIFIER ">
+			trigonometric</span></span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="NEWLINE_WS ">
+			
+    </span>
+			<span class="CALL ">
+			<span class="IDENTIFIER ">
+			push!</span>
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="TUPLE ">
+			<span class="LPAREN ">
+			(</span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			cos</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			instance</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="IDENTIFIER ">
+			cos</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			category</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="QUOTE ">
+			<span class="COLON ">
+			:</span>
+			<span class="IDENTIFIER ">
+			trigonometric</span></span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="NEWLINE_WS ">
+			
+    </span>
+			<span class="CALL ">
+			<span class="IDENTIFIER ">
+			push!</span>
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="TUPLE ">
+			<span class="LPAREN ">
+			(</span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			log2</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			instance</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="IDENTIFIER ">
+			log2</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			category</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="QUOTE ">
+			<span class="COLON ">
+			:</span>
+			<span class="IDENTIFIER ">
+			logarithmic</span></span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="NEWLINE_WS ">
+			
+    </span>
+			<span class="CALL ">
+			<span class="IDENTIFIER ">
+			push!</span>
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="TUPLE ">
+			<span class="LPAREN ">
+			(</span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			log</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			instance</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="IDENTIFIER ">
+			log</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			category</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="QUOTE ">
+			<span class="COLON ">
+			:</span>
+			<span class="IDENTIFIER ">
+			logarithmic</span></span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="NEWLINE_WS ">
+			
+    </span>
+			<span class="CALL ">
+			<span class="IDENTIFIER ">
+			push!</span>
+			<span class="LPAREN ">
+			(</span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="TUPLE ">
+			<span class="LPAREN ">
+			(</span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			id</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="DQUOTE ">
+			&quot;</span>
+			<span class="STRING ">
+			log1p</span>
+			<span class="DQUOTE ">
+			&quot;</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			instance</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="IDENTIFIER ">
+			log1p</span></span>
+			<span class="COMMA ">
+			,</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			<span class="IDENTIFIER ">
+			category</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="EQ ">
+			=</span>
+			<span class="WHITESPACE ">
+			 </span>
+			<span class="QUOTE ">
+			<span class="COLON ">
+			:</span>
+			<span class="IDENTIFIER ">
+			logarithmic</span></span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="RPAREN ">
+			)</span></span>
+			<span class="NEWLINE_WS ">
+			
+</span>
+			<span class="NEWLINE_WS ">
+			
+    </span>
+			<span class="IDENTIFIER ">
+			registry</span>
+			<span class="NEWLINE_WS ">
+			
+</span></span>
+			<span class="END ">
+			end</span></span></span></code></pre></span></div>
+</div></div></div></div>
+
+
+		<script type="module" data-hydrate="1xwixej">
+		import { start } from "/FeatureRegistries.jl/internal/start-f087a638.js";
+		start({
+			target: document.querySelector('[data-hydrate="1xwixej"]').parentNode,
+			paths: {"base":"/FeatureRegistries.jl","assets":"/FeatureRegistries.jl"},
+			session: {},
+			route: false,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [
+					import("/FeatureRegistries.jl/internal/pages/__layout.svelte-4bac7188.js"),
+						import("/FeatureRegistries.jl/internal/pages/_version_/_...documentId_.svelte-357475fa.js")
+				],
+				url: new URL("http://sveltekit-prerender/FeatureRegistries.jl/dev/sourcefiles/FeatureRegistries/src/test.jl"),
+				params: {version:"dev",documentId:"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Ftest.jl"}
+			}
+		});
+	</script><script type="application/json" data-type="svelte-data" data-url="/FeatureRegistries.jl/data/dev/attributes.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"references\u002FFeatureRegistries._showentry\":{\"tag\":\"documentation\",\"title\":\"_showentry\"},\"references\u002FFeatureRegistries.registrytable\":{\"tag\":\"documentation\",\"title\":\"registrytable\"},\"references\u002FFeatureRegistries\":{\"tag\":\"documentation\",\"title\":\"FeatureRegistries\"},\"references\u002FFeatureRegistries.RegistryInfo\":{\"tag\":\"documentation\",\"title\":\"RegistryInfo\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Ffind.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Ffind.jl\"},\"references\u002FFeatureRegistries.find\":{\"tag\":\"documentation\",\"title\":\"find\"},\"references\u002FFeatureRegistries.getdata\":{\"tag\":\"documentation\",\"title\":\"getdata\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Finfo.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Finfo.jl\"},\"documents\u002Fdocs\u002Fusing.md\":{\"tag\":\"document\",\"title\":\"Using registries\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Fprinting.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Fprinting.jl\"},\"documents\u002Fdocs\u002Fexamples\u002Fcolors.md\":{\"tag\":\"document\",\"title\":\"Example: Named colors in Colors.jl\"},\"references\u002FFeatureRegistries.Field\":{\"tag\":\"documentation\",\"title\":\"Field\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002FFeatureRegistries.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002FFeatureRegistries.jl\"},\"references\u002FFeatureRegistries.load\":{\"tag\":\"documentation\",\"title\":\"load\"},\"references\u002FFeatureRegistries.##InlineTest-01b48f5c342f65df7fcd07f28f0d2cacbb09f0a0.__init__\":{\"tag\":\"documentation\",\"title\":\"__init__\"},\"references\u002FFeatureRegistries.RequiredKeyMissingError\":{\"tag\":\"documentation\",\"title\":\"RequiredKeyMissingError\"},\"references\u002FFeatureRegistries.RichCell\":{\"tag\":\"documentation\",\"title\":\"RichCell\"},\"references\u002FFeatureRegistries.##InlineTest-01b48f5c342f65df7fcd07f28f0d2cacbb09f0a0.tests\":{\"tag\":\"documentation\",\"title\":\"tests\"},\"references\u002FFeatureRegistries.DuplicateIDError\":{\"tag\":\"documentation\",\"title\":\"DuplicateIDError\"},\"references\u002FFeatureRegistries._show_image_html\":{\"tag\":\"documentation\",\"title\":\"_show_image_html\"},\"references\u002FFeatureRegistries.runtests\":{\"tag\":\"documentation\",\"title\":\"runtests\"},\"references\u002FFeatureRegistries.getfields\":{\"tag\":\"documentation\",\"title\":\"getfields\"},\"references\u002FFeatureRegistries.exampleregistry\":{\"tag\":\"documentation\",\"title\":\"exampleregistry\"},\"documents\u002FREADME.md\":{\"tag\":\"document\",\"title\":\"FeatureRegistries.jl\"},\"references\u002FFeatureRegistries._fieldtype\":{\"tag\":\"documentation\",\"title\":\"_fieldtype\"},\"references\u002FFeatureRegistries.makerow\":{\"tag\":\"documentation\",\"title\":\"makerow\"},\"references\u002FFeatureRegistries.FeatureRegistries\":{\"tag\":\"documentation\",\"title\":null},\"documents\u002Fdocs\u002Ftutorials\u002Fintroduction.md\":{\"tag\":\"document\",\"title\":\"Introduction\"},\"references\u002FFeatureRegistries._title\":{\"tag\":\"documentation\",\"title\":\"_title\"},\"documents\u002Fdocs\u002Fexamples\u002Ftestimages.md\":{\"tag\":\"document\",\"title\":\"Example: images in TestImages.jl\"},\"references\u002FFeatureRegistries.##InlineTest-01b48f5c342f65df7fcd07f28f0d2cacbb09f0a0.TESTSET_MACROS\":{\"tag\":\"documentation\",\"title\":\"TESTSET_MACROS\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Fregistry.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Fregistry.jl\"},\"references\u002FFeatureRegistries.matchesentry\":{\"tag\":\"documentation\",\"title\":\"matchesentry\"},\"references\u002FFeatureRegistries.Registry\":{\"tag\":\"documentation\",\"title\":\"Registry\"},\"references\u002FFeatureRegistries.IMAGE_MIMES\":{\"tag\":\"documentation\",\"title\":\"IMAGE_MIMES\"},\"references\u002FFeatureRegistries.info\":{\"tag\":\"documentation\",\"title\":\"info\"},\"references\u002FFeatureRegistries._stringhtml\":{\"tag\":\"documentation\",\"title\":\"_stringhtml\"},\"references\u002FFeatureRegistries.RegistryEntry\":{\"tag\":\"documentation\",\"title\":\"RegistryEntry\"},\"references\u002FFeatureRegistries._index_key\":{\"tag\":\"documentation\",\"title\":\"_index_key\"},\"references\u002FFeatureRegistries.withdata\":{\"tag\":\"documentation\",\"title\":\"withdata\"},\"documents\u002Fdocs\u002Fexamples.md\":{\"tag\":\"document\",\"title\":\"Examples\"},\"sourcefiles\u002FFeatureRegistries\u002Fsrc\u002Ftest.jl\":{\"tag\":\"sourcefile\",\"title\":\"FeatureRegistries\u002Fsrc\u002Ftest.jl\"}}"}</script>
+	<script type="application/json" data-type="svelte-data" data-url="/FeatureRegistries.jl/data/dev/config.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"linktree\":{\"README\":\"documents\u002FREADME.md\",\"Using registries\":\"documents\u002Fdocs\u002Fusing.md\",\"Examples\":\"documents\u002Fdocs\u002Fexamples.md\",\"Reference\":\"references\u002FFeatureRegistries\"},\"columnWidth\":650,\"title\":\"FeatureRegistries.jl\",\"defaultDocument\":\"documents\u002FREADME.md\"}"}</script>
+	<script type="application/json" data-type="svelte-data" data-url="/FeatureRegistries.jl/data/dev/sourcefiles/FeatureRegistries/src/test.jl.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"{\"attributes\":{\"backlinks\":[],\"path\":\"\u002Fhome\u002Frunner\u002F.julia\u002Fpackages\u002FFeatureRegistries\u002Fo8XgC\u002Fsrc\u002Ftest.jl\",\"title\":\"FeatureRegistries\u002Fsrc\u002Ftest.jl\"},\"tag\":\"sourcefile\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{\"lang\":\"julia\"},\"tag\":\"codeblock\",\"children\":[{\"attributes\":{},\"tag\":\"julia\",\"children\":[{\"attributes\":{},\"tag\":\"FUNCTION\",\"children\":[{\"attributes\":{},\"tag\":\"FUNCTION\",\"children\":[\"function\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.exampleregistry\"},\"tag\":\"reference\",\"children\":[\"exampleregistry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"BLOCK\",\"children\":[{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n    \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.Registry\"},\"tag\":\"reference\",\"children\":[\"Registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n        \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"TUPLE\",\"children\":[{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"PARAMETERS\",\"children\":[{\"attributes\":{},\"tag\":\"SEMICOLON\",\"children\":[\";\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n            \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.Field\"},\"tag\":\"reference\",\"children\":[\"Field\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"String\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"name\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"ID\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n            \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"category\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.Field\"},\"tag\":\"reference\",\"children\":[\"Field\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n                \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"Symbol\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n                \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"name\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"Category\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n                \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"description\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"The category of mathematical function\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n                \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"optional\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"TRUE\",\"children\":[\"true\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n            \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n            \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"instance\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{\"reftype\":\"symbol\",\"document_id\":\"references\u002FFeatureRegistries.Field\"},\"tag\":\"reference\",\"children\":[\"Field\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n                \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"Function\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n                \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"name\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"Function instance\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n                \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"description\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"The Julia function object\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n            \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n        \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n        \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"name\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"Mathematical functions\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n        \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"KW\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"loadfn\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"ANON_FUNC\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"row\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"ANON_FUNC\",\"children\":[\"-\u003E\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DOT\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"row\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DOT\",\"children\":[\".\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"instance\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n    \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n    \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"push!\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"TUPLE\",\"children\":[{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"sin\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"instance\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"sin\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"category\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"COLON\",\"children\":[\":\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"trigonometric\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n    \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"push!\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"TUPLE\",\"children\":[{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"tan\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"instance\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"tan\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"category\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"COLON\",\"children\":[\":\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"trigonometric\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n    \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"push!\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"TUPLE\",\"children\":[{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"cos\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"instance\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"cos\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"category\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"COLON\",\"children\":[\":\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"trigonometric\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n    \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"push!\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"TUPLE\",\"children\":[{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"log2\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"instance\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"log2\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"category\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"COLON\",\"children\":[\":\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"logarithmic\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n    \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"push!\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"TUPLE\",\"children\":[{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"log\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"instance\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"log\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"category\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"COLON\",\"children\":[\":\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"logarithmic\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n    \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"CALL\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"push!\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"TUPLE\",\"children\":[{\"attributes\":{},\"tag\":\"LPAREN\",\"children\":[\"(\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"id\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"STRING\",\"children\":[\"log1p\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"DQUOTE\",\"children\":[\"\\\"\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"instance\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"log1p\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"COMMA\",\"children\":[\",\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"category\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"EQ\",\"children\":[\"=\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"WHITESPACE\",\"children\":[\" \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"QUOTE\",\"children\":[{\"attributes\":{},\"tag\":\"COLON\",\"children\":[\":\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"logarithmic\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"RPAREN\",\"children\":[\")\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n    \"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"IDENTIFIER\",\"children\":[\"registry\"],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"NEWLINE_WS\",\"children\":[\"\\n\"],\"type\":\"node\"}],\"type\":\"node\"},{\"attributes\":{},\"tag\":\"END\",\"children\":[\"end\"],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}],\"type\":\"node\"}"}</script></div>
+</body>
+
+</html>

@@ -1,1 +1,1 @@
-{"linktree":{"README":"documents/README.md","Reference":"references/FeatureRegistries","Examples":"documents/docs/examples.md"},"columnWidth":650,"title":"FeatureRegistries.jl","defaultDocument":"documents/README.md"}
+{"linktree":{"README":"documents/README.md","Using registries":"documents/docs/using.md","Examples":"documents/docs/examples.md","Reference":"references/FeatureRegistries"},"columnWidth":650,"title":"FeatureRegistries.jl","defaultDocument":"documents/README.md"}
