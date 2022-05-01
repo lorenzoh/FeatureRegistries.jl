@@ -6,6 +6,7 @@ struct Field{T}
     transformfn
     createfn
     formatfn
+    filterfn
 end
 
 Base.show(io::IO, field::Field{T}) where T = print(io, "Field{", T, "}(name = \"", field.name, "\")")
@@ -48,8 +49,9 @@ function Field(
         transformfn = x -> convert(U, x),
         containerfn = () -> U[],
         formatfn = RichCell,
+        filterfn = nothing,
     )
-    Field{T}(name, description, computefn, transformfn, containerfn, formatfn)
+    Field{T}(name, description, computefn, transformfn, containerfn, formatfn, filterfn)
 end
 
 
