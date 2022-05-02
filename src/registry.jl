@@ -43,7 +43,7 @@ function Field(
         description = "",
         default = missing,
         optional = !ismissing(default),
-        defaultfn = optional ? Returns(default) : ((row, key) -> throw(RequiredKeyMissingError(key))),
+        defaultfn = optional ? ((row, key) -> default) : ((row, key) -> throw(RequiredKeyMissingError(key))),
         computefn = (row, key) -> haskey(row, key) ? get(row, key, nothing) : defaultfn(row, key),
         U = optional ? Union{typeof(default), T} : T,
         transformfn = x -> convert(U, x),
