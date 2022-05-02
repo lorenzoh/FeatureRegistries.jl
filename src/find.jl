@@ -29,7 +29,7 @@ function matchesentry(fields, row; filters...)
 end
 
 # The default for any function is to match against a value
-matchesentry(f::Field, value, query) = isnothing(f.filterfn) ? value == query : filterfn(value, query)
+matchesentry(f::Field, value, query) = isnothing(f.filterfn) ? value == query : f.filterfn(value, query)
 matchesentry(field::Field, value::Missing, ::typeof(ismissing)) = true
 matchesentry(field::Field, value::Missing, _) = false
 
