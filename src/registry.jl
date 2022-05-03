@@ -48,7 +48,7 @@ function Field(
         U = optional ? Union{typeof(default), T} : T,
         transformfn = x -> convert(U, x),
         containerfn = () -> U[],
-        formatfn = RichCell,
+        formatfn = identity,
         filterfn = nothing,
     )
     Field{T}(name, description, computefn, transformfn, containerfn, formatfn, filterfn)

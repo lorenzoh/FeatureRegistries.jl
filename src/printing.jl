@@ -13,7 +13,8 @@ function Base.show(io::IO, cell::RichCell)
 end
 
 function Base.show(io::IO, cell::RichCell{String})
-    print(io, "$(crayon"green")\"$(cell.val)\"")
+    print(io, cell.val)
+    #print(io, "$(crayon"green")\"$(cell.val)\"")
 end
 
 function Base.show(io::IO, ::RichCell{Missing})
@@ -22,9 +23,9 @@ end
 
 function Base.show(io::IO, cell::RichCell{Bool})
     if cell.val
-        print(io, "$(crayon"green")✔")
+        print(io, "$(crayon"green")✔$(crayon"reset")")
     else
-        print(io, "$(crayon"red")⨯")
+        print(io, "$(crayon"red")⨯$(crayon"reset")")
     end
 end
 
@@ -33,6 +34,7 @@ end
 
 # fallback
 
+# TODO: fix string display
 const IMAGE_MIMES = [
     MIME("image/jpeg"),
     MIME("image/png"),
@@ -51,9 +53,11 @@ function Base.show(io::IO, mime::MIME"text/html", cell::RichCell)
     end
 end
 
+#=
 function Base.show(io::IO, ::MIME"text/html", cell::RichCell{String})
     print(io, """<span style="color:#073;">\"$(cell.val)\"</span>""")
 end
+=#
 
 # from https://github.com/JuliaImages/ImageShow.jl/pull/49
 function _show_image_html(io, mimes::Vector{<:MIME}, x)
@@ -82,6 +86,15 @@ function Base.show(io::IO, ::MIME"text/html", cell::RichCell{Bool})
 end
 
 
+function Base.show(io::IO, ::MIME"text/html", ::RichCell{Missing})
+    print(io, """<span style="color:lightgray;">missing</span>""")
+end
+
+function Base.show(io::IO, ::MIME"text/html", cell::RichCell{String})
+    print(io, cell.val)
+end
+
+
 # ## `show` methods
 
 
@@ -92,7 +105,7 @@ function registrytable(registry::Registry)
 
     tabledata = if length(data) > 0
         reduce(vcat, map(data) do row
-            reshape([field.formatfn(row[key]) for (key, field) in pairs(fields)], 1, :)
+            reshape([formatfieldvalue(field, row[key]) for (key, field) in pairs(fields)], 1, :)
         end)
     else
         fill(missing, (1, length(fields)))
@@ -108,14 +121,13 @@ function registrytable(registry::Registry)
 end
 
 
-#_title(registry) = "$(getfield(registry, :name)) (Registry() with $(length(getdata(registry))) entr$(length(getdata(registry)) == 1 ? "y" : "ies"))"
 _title(registry) = getfield(registry, :name)
 
 function Base.show(io::IO, registry::Registry)
     tabledata, kwargs = registrytable(registry)
     pretty_table(
         io,
-        map(c -> c isa RichCell ? AnsiTextCell(io -> show(io, c)) : c, tabledata);
+        map(c -> AnsiTextCell(io -> show(io, c)), tabledata);
         backend = Val(:text),
         tf=PrettyTables.tf_borderless,
         hlines=:all,
@@ -146,11 +158,14 @@ function _stringhtml(c)
     if showable(MIME("text/html"), c)
         show(io, MIME("text/html"), c)
     else
-        show(io, c)
+        print(io, c)
     end
     return String(take!(io))
 end
 
+
+formatfieldvalue(field, value) = field.formatfn(value)
+formatfieldvalue(field, value::Missing) = missing
 
 function _showentry(io::IO, entry::RegistryEntry)
     row = getfield(entry, :row)
@@ -160,21 +175,54 @@ function _showentry(io::IO, entry::RegistryEntry)
     rows = [reshape([
             "   $col",
             "=",
-            AnsiTextCell(string(field.formatfn(row[col]))),
+            AnsiTextCell(
+                string(
+                    RichCell(
+                        formatfieldvalue(field, row[col]),
+                        (:color => true, :displaysize => (10,50))))),
             AnsiTextCell("$(crayon"dark_gray")($(_fieldtype(field)))")
             ], 1, :)
         for (col, field) in pairs(registry.fields)]
     pretty_table(
         io, reduce(vcat, rows);
         alignment=[:r, :c, :l, :l], vlines=:none, hlines=:none,
-        vcrop_mode=:middle, tf=PrettyTables.tf_compact,
+        vcrop_mode=:middle,
+        tf=PrettyTables.tf_compact,
         header = ["", "", "", ""],
+        autowrap=true
     )
     print(io, ")")
 end
 
 
+
 function Base.show(io::IO, entry::RegistryEntry)
     print(io, "RegistryEntry")
     _showentry(io, entry)
+end
+
+
+@testset "Printing" begin
+
+    @testset "text" begin
+        richstring(x) = sprint(io -> show(io, MIME("text/plain"), RichCell(x)))
+
+        @test richstring("hi") == "hi"
+        @test richstring(Markdown.parse("hi")) |> strip == "hi"
+        @test richstring(Markdown.parse("**hi**")) |> strip == "\e[1mhi\e[22m"
+        @test richstring(true) == "\e[32m✔\e[0m"
+        @test richstring(false) == "\e[31m⨯\e[0m"
+        @test richstring(missing) == "\e[90mmissing"
+    end
+
+    @testset "html" begin
+        richstring(x) = sprint(io -> show(io, MIME("text/html"), RichCell(x)))
+
+        @test richstring("hi") == "hi"
+        @test richstring(Markdown.parse("hi")) == """<div class="markdown"><p>hi</p>\n</div>"""
+        @test richstring(Markdown.parse("**hi**")) == """<div class=\"markdown\"><p><strong>hi</strong></p>\n</div>"""
+        @test richstring(true) == "<span style=\"color:green;\">✔</span>"
+        @test richstring(false) == "<span style=\"color:red;\">⨯</span>"
+
+    end
 end
