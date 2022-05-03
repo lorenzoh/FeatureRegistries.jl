@@ -33,6 +33,7 @@ using Markdown
 using PrettyTables
 using StructArrays
 
+import ImageShow
 import Setfield
 
 

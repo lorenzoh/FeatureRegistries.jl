@@ -4,7 +4,7 @@
 
 {cell}
 ```julia
-using Colors, FeatureRegistries, FixedPointNumbers
+using Colors, FeatureRegistries, FixedPointNumbers, ImageInTerminal
 using FeatureRegistries: Registry, Field
 
 colors = Registry((;

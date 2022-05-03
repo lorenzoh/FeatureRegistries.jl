@@ -57,43 +57,22 @@ end
 const IMAGE_MIMES = [
     MIME("image/jpeg"),
     MIME("image/png"),
-    MIME("image/svg+xml"),
-    MIME("image/webp"),
-    MIME("image/gif"),
 ]
 
 # fallback
 function Base.show(io::IO, mime::MIME"text/html", cell::RichCell)
     if showable(mime, cell.val)
         show(io, mime, cell.val)
+    elseif showable(MIME("image/svg+xml"), cell.val)
+        show(io, MIME("image/svg+xml"), cell.val)
     elseif any(showable(m, cell.val) for m in IMAGE_MIMES)
-        _show_image_html(io, IMAGE_MIMES, cell.val)
+        @show showable.(IMAGE_MIMES, cell.val)
+        ImageShow.show_element(io, cell.val)
     else
-        print(io, cell)
+        print(io, cell.val)
     end
 end
 
-#=
-function Base.show(io::IO, ::MIME"text/html", cell::RichCell{String})
-    print(io, """<span style="color:#073;">\"$(cell.val)\"</span>""")
-end
-=#
-
-# from https://github.com/JuliaImages/ImageShow.jl/pull/49
-function _show_image_html(io, mimes::Vector{<:MIME}, x)
-    for mime in mimes
-        if showable(mime, x)
-            _show_image_html(io, mime, x)
-            break
-        end
-    end
-end
-
-function _show_image_html(io, mime::MIME{Name}, x) where Name
-    buf = IOBuffer()
-    show(buf, mime, x)
-    print(io, """<img src="data:""", Name, ";base64,", Base64.base64encode(take!(buf)), "\" />")
-end
 
 
 
