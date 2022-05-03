@@ -30,6 +30,10 @@ function exampleregistry()
         ),
         name = "Mathematical functions",
         loadfn = row -> row.instance,
+        description= """
+        Contains mathematical functions. `load`ing an entry will return the
+        corresponding function.
+        """
     )
     push!(registry, (id = "sin", instance = sin, category = :trigonometric))
     push!(registry, (id = "tan", instance = tan, category = :trigonometric))

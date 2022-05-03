@@ -23,10 +23,12 @@ end
 
 function Base.show(io::IO, registryinfo::RegistryInfo)
     registry = registryinfo.registry
-    println(io, "Fields in registry \"", getfield(registry, :name), "\"")
+    println(io,
+        "Information on registry ",
+        crayon"underline", getfield(registry, :name), crayon"reset", "\n\n",
+        "$(crayon"bold")Fields$(crayon"reset"): ")
 
     fs = registry.fields
-
     data = reduce(vcat, [
             reshape([
                 f.name,
@@ -46,6 +48,11 @@ function Base.show(io::IO, registryinfo::RegistryInfo)
         tf=PrettyTables.tf_borderless,
         header = ["Name", "Column", "Type", "Description"]
     )
+
+    if !isempty(registry.description)
+        println(io, "\n$(crayon"bold")Description$(crayon"reset"): ")
+        show(io, RichCell(Markdown.parse(registry.description)))
+    end
 end
 
 _fieldtype(::Field{T}) where T = T
