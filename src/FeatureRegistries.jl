@@ -47,6 +47,7 @@ include("info.jl")
 export info
 
 include("printing.jl")
+include("formats.jl")
 
 include("test.jl")
 

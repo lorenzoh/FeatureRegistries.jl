@@ -1,3 +1,15 @@
+#=
+This file implements pretty printing of feature registries as tables,
+both using rich terminal text (ANSI codes) and as HTML.
+=#
+
+#=
+To ensure that the values in table cells are displayed nicely, we
+define a wrapper [`RichCell`](#) that ensures the richest mimetype is used
+to display values, with some defaults for common values like `missing`,
+`Bool`s and images.
+=#
+
 
 Base.@kwdef struct RichCell{T}
     val::T
@@ -14,7 +26,6 @@ end
 
 function Base.show(io::IO, cell::RichCell{String})
     print(io, cell.val)
-    #print(io, "$(crayon"green")\"$(cell.val)\"")
 end
 
 function Base.show(io::IO, ::RichCell{Missing})
@@ -29,12 +40,20 @@ function Base.show(io::IO, cell::RichCell{Bool})
     end
 end
 
+# Printing of `Markdown.MD` adds some indentation and a newline by default,
+# we `strip` this for more compact tables.
+function Base.show(io::IO, cell::RichCell{Markdown.MD})
+    iobuf = IOBuffer()
+    display(TextDisplay(IOContext(iobuf, cell.iocontext...)), cell.val)
+
+    s = String(take!(iobuf)) |> strip
+    print(io, s)
+end
+
+
 
 # HTML
 
-# fallback
-
-# TODO: fix string display
 const IMAGE_MIMES = [
     MIME("image/jpeg"),
     MIME("image/png"),
@@ -43,6 +62,7 @@ const IMAGE_MIMES = [
     MIME("image/gif"),
 ]
 
+# fallback
 function Base.show(io::IO, mime::MIME"text/html", cell::RichCell)
     if showable(mime, cell.val)
         show(io, mime, cell.val)
@@ -127,7 +147,7 @@ function Base.show(io::IO, registry::Registry)
     tabledata, kwargs = registrytable(registry)
     pretty_table(
         io,
-        map(c -> AnsiTextCell(io -> show(io, c)), tabledata);
+        map(c -> AnsiTextCell(string(RichCell(c))), tabledata);
         backend = Val(:text),
         tf=PrettyTables.tf_borderless,
         hlines=:all,
@@ -165,7 +185,7 @@ end
 
 
 formatfieldvalue(field, value) = field.formatfn(value)
-formatfieldvalue(field, value::Missing) = missing
+formatfieldvalue(_, ::Missing) = missing
 
 function _showentry(io::IO, entry::RegistryEntry)
     row = getfield(entry, :row)
