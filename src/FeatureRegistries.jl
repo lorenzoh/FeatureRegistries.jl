@@ -27,6 +27,8 @@ Developers can create registries using [`Registry`](#) and [`Field`](#), `push!(
 module FeatureRegistries
 
 
+
+
 using Base64
 using InlineTest
 using Markdown
@@ -34,6 +36,11 @@ using PrettyTables
 using StructArrays
 
 import ImageShow
+
+# see https://github.com/JuliaImages/ImageShow.jl/pull/51
+if isdefined(ImageShow, :enable_html_render)
+    ImageShow.enable_html_render()
+end
 import Setfield
 
 

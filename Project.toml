@@ -1,7 +1,7 @@
 name = "FeatureRegistries"
 uuid = "c6aefb4f-3ac3-4095-8805-528476b02c02"
 authors = ["lorenzoh <lorenz.ohly@gmail.com> and contributors"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 Base64 = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"

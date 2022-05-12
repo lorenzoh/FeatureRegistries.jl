@@ -125,6 +125,8 @@ Base.propertynames(entry::RegistryEntry) =
 
 Base.NamedTuple(entry::RegistryEntry) = NamedTuple(getfield(entry, :row))
 
+Base.keys(reg::Registry) = keys(getfield(reg, :index))
+
 """
     load(entry)
     load(registry[id])
