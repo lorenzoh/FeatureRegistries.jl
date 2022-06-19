@@ -16,4 +16,5 @@ But what are "features"? Features can be any group of package functionality with
 - machine learning architectures that a user can instantiate; or
 - a set of remotely stored images
 
+
 Read on in the [documentation](http://lorenzoh.github.io/FeatureRegistries.jl/dev/i) for more information on [how to use registries](docs/using.md) and [examples of such registries](docs/examples.md).
